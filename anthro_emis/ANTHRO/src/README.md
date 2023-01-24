@@ -9,13 +9,13 @@ The `anthro_emis` utility, a single cpu executable, creates WRF gridded
 anthropogenic emissions files from lat-lon gridded input anthropogenic
 emission files.  The resulting WRF files can be two types;
 (a) diurnal and (b) serial.  There are two datasets with file names of
-the form wrfchemi_00z_d<nn> and wrfchemi_12z_d<nn> for the diurnal case
-and wrfchemi_d<nn>_<date> for the serial case.
+the form `wrfchemi_00z_d<nn>` and `wrfchemi_12z_d<nn>` for the diurnal case
+and `wrfchemi_d<nn>_<date>` for the serial case.
 
 Throughout this note the following definitions pertain :
 
-<nn>   is a two digit integer representing a WRF domain
-<date> is a WRF date of the form yyyy-mm-dd_hh:mm:ss
+* `<nn>`   is a two digit integer representing a WRF domain
+* `<date>` is a WRF date of the form `yyyy-mm-dd_hh:mm:ss`
 
 Input anthropogenic datasets
 ----------------------------
@@ -23,23 +23,23 @@ Input anthropogenic datasets
 The input lat-lon anthropogenic emission files must be netcdf
 conforming datasets and have the following structure :
 
-1. each input dataset is for one input species
+1. Each input dataset is for one input species
 
-2. lon and lat one dimensional variables containg the longitudes
+2. Lon and lat one dimensional variables containg the longitudes
     and latitudes in degrees about which each input grid cell is
     centered.  The lon and lat variables must be monotonically
     increasing.
 
-3. one of the following :
+3. One of the following :
     (i)  date and datesec variables containing the date and seconds
 	 in day. The date is an integer encoding the date yyyymmdd.
     (ii) a time variable representing the time since a given date.
 	 The base date must be contained in the time variable units
 	 attribute and be of the form yyyy-mm-dd.
 
-4. one or more variables containing the actual anthropogenic
-    emissions, designated as sub categories, which must be dimensioned
-    as (lon,lat,time).
+4. One or more variables containing the actual anthropogenic
+   emissions, designated as sub categories, which must be dimensioned
+   as (lon,lat,time).
 
 Additionally the input anthropogenic dataset may have the molecular
 weight of the input species in g/mole as either :
@@ -52,7 +52,7 @@ If the input dataset does not specify the species molecular weight
 then the user may specify the input species molecular weight in the
 src_names namelist variable( see below ).  
 
-If the molecular weight is specified via the src_names namelist variable
+If the molecular weight is specified via the `src_names` namelist variable
 then any molecular weight information in the input dataset is ignored.
 
 Input WRF datasets
@@ -68,7 +68,7 @@ wrfinput_d<nn>
 Building anthro_emis
 -----------------
 	
-In the anthro_emis source code directory, src, issue the command :
+In the anthro_emis source code directory, `src`, issue the command :
 	
 ```
 csh make_anthro
@@ -85,7 +85,7 @@ can set the environment variable
 FC
 ```
 	
-before invoking make_anthro.  As an example you would issue
+before invoking `make_anthro`.  As an example you would issue
 the command :
 
 ```	
@@ -100,39 +100,39 @@ setenv FC ifort
 	
 in the csh or tcsh shells.
 
-The anthro_emis utility requires the netcdf library and make_anthro
-will attempt to locate the libnetcdf.a library.  However, this is
+The `anthro_emis` utility requires the netcdf library and `make_anthro`
+will attempt to locate the `libnetcdf.a` library.  However, this is
 not a foolproof process and thus you may need to set the environment variable
 
 ```
 NETCDF_DIR
 ```
 
-to the directory containing the file lib/libnetcdf.a.  As an example
+to the directory containing the file `lib/libnetcdf.a`.  As an example
 in the ksh shell, if you issued the command :
 
 ```
 export NETCDF_DIR=/usr/local/netcdf-4.1.2
 ```
 	
-then make_anthro would look for the file libnetcdf.a in the
-directory /usr/local/netcdf-4.1.2/lib (make_anthro automatically
-appends the /lib string to the NETCDF_DIR string.
+then `make_anthro` would look for the file `libnetcdf.a` in the
+directory `/usr/local/netcdf-4.1.2/lib` (`make_anthro` automatically
+appends the `/lib` string to the `NETCDF_DIR` string.
 
-anthro_emis reads a namelist input file (anthro_emis.inp) that specifies 
+`anthro_emis` reads a namelist input file (`anthro_emis.inp`) that specifies 
 all aspects of the mapping of source lat-lon datasets to WRF emission 
 datasets and checks key namelist control variables for validity.  Below 
 is a complete listing of all namelist control variables grouped by 
-functionality. [Examples for anthro_emis.inp are given below the 
-following listing].
+functionality. (*Examples for anthro_emis.inp are given below the 
+following listing*).
 
 Directory
 -----------------
 
-Variable name             Variable type                               default value
--------- ----             -------- ----                               ------- -----
-anthro_dir                character(len=132),scalar                   present working directory
-wrf_dir                   character(len=132),scalar                   present working directory
+| Variable name     |        Variable type                   |            default value|
+| ------------      |------------  |                             ------- -----|
+| anthro_dir         |       character(len=132),scalar         |          present working directory |
+| wrf_dir             |      character(len=132),scalar          |         present working directory |
 
 Filename
 ========
