@@ -130,7 +130,7 @@ Directory
 -----------------
 
 | Variable name     |        Variable type                   |            default value|
-| ------------      |------------  |                             ------- -----|
+| ------------ |------------  | ------------|
 | anthro_dir         |       character(len=132),scalar         |          present working directory |
 | wrf_dir             |      character(len=132),scalar          |         present working directory |
 
