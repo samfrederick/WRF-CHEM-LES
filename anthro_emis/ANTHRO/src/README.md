@@ -135,7 +135,7 @@ Directory
 | wrf_dir       | character(len=132),scalar | present working directory |
 
 Filename
-========
+-----------------
 
 | Variable name | Variable type             | default value             |
 |---------------|---------------------------|---------------------------| 
@@ -143,7 +143,7 @@ Filename
 | src_file_suffix        |   character(len=132),scalar              |     blank string |
 
 Timing
-======
+-----------------
 
 | Variable name     |        Variable type                   |     default value| Units/Notes |
 | ------------ |------------  | ------------| -------------- |
@@ -154,13 +154,14 @@ Timing
 | data_yrs_offset       |     integer,scalar                |                  0             |             years| 
 
 Mapping
-=======
+-----------------
+	
 Variable name             Variable type                               default value
 -------- ----             -------- ----                               ------- -----
 emis_map                  character(len=132),array(500)                  (None)                    
 
 Input File Variable Names
-===== ==== ======== =====
+-----------------
 	
 | Variable name | Variable type             | default value             |
 |---------------|---------------------------|---------------------------|
@@ -170,7 +171,7 @@ cat_var_prefix            character(len=132),scalar                   blank_stri
 cat_var_suffix            character(len=132),scalar                   blank string
 
 WRF Parameters
-=== ==========
+-----------------
 	
 | Variable name | Variable type             | default value             |
 |---------------|---------------------------|---------------------------|
@@ -178,13 +179,13 @@ domains                   integer,scalar                                  1
 emissions_zdim_stag       integer,scalar                                  10
 
 
-******************************************************************************************************
-*** The following variables must be set in the input namelist file or anthro_emis will error halt. ***
-******************************************************************************************************
-
+**The following variables must be set in the input namelist file or anthro_emis will error halt.**
+	
+```
 src_names
 emis_map
-
+```
+	
 Although none of the remaining namelist variables need be set it is most likely that some of the
 remaining variables will be set.
 
@@ -197,10 +198,10 @@ remaining variables will be set.
 ******************************************************************************
 
 Namelist variable notes
-======== ======== =====
+=======================
 
 wrf_dir (optional)
--------
+------------------
 
   Specifies the directory where anthro_emis expects to find the WRF input
   files wrfinput_d<nn>.  Note that wrf_directory must NOT end with a "/"
@@ -230,7 +231,7 @@ anthro_dir (optional)
   Defaults to the present working directory.
 
 src_file_prefix, src_file_suffix (optional)
----------------  ---------------
+------------------------------
 
   Used to form the fully anotated source emission dataset filename.  If we
   have set the following namelist settings :
@@ -343,240 +344,246 @@ sub_categories (optional)
 
 
 cat_var_prefix, cat_var_suffix (optional)
----------------  ---------------
+------------------------------
 
-  Used to form the fully anotated source emission variable name.  If we
-  have set the following namelist definitions:
+Used to form the fully anotated source emission variable name.  If we
+have set the following namelist definitions:
 
-  cat_subcategories = 'industrial'
-  cat_var_prefix = 'automobile_'
+cat_subcategories = 'industrial'
+cat_var_prefix = 'automobile_'
 
-  then the anthro_emis utility will look for the the input emission variable
+then the anthro_emis utility will look for the the input emission variable
 
-  automobile_industrial
+automobile_industrial
 
-  and will error halt if it does not exist.
+and will error halt if it does not exist.
 
 emis_map (mandatory)
 --------
 
-  Specifies the mapping between WRF species anthropogenic emissions and source lat-lon
-  emission datasets.  The emis_map namelist variable is a character array of size 500
-  with each array element 132 characters long.  
+Specifies the mapping between WRF species anthropogenic emissions and source lat-lon
+emission datasets.  The emis_map namelist variable is a character array of size 500
+with each array element 132 characters long.  
 
-  Each entry in the is of the form :
+Each entry in the is of the form :
 
 
-  <WRF_emis> -> spc_mult * <emis_name>{ + spc_mult * <emis_name> + ... }
+<WRF_emis> -> spc_mult * <emis_name>{ + spc_mult * <emis_name> + ... }
 
-  Where
+Where
 
-  <WRF_emis> is of the form :
+<WRF_emis> is of the form :
 
-    <name>{(a)}
+<name>{(a)}
 
-  wherein <name> will be used to construct the actual name of the WRF species
-  anthropogenic emission in the output dataset.  The actual name in the output
-  dataset is of the form E_<name>.  
+wherein <name> will be used to construct the actual name of the WRF species
+anthropogenic emission in the output dataset.  The actual name in the output
+dataset is of the form E_<name>.  
 
-  If present the "(a)" string denotes the WRF output species to be an aerosol.
-  If no "(a)" string is present the WRF output species is understood to be a gas.
-  WRF gas phase and aerosol species have different emission units :
+If present the "(a)" string denotes the WRF output species to be an aerosol.
+If no "(a)" string is present the WRF output species is understood to be a gas.
+WRF gas phase and aerosol species have different emission units :
 
-  gas     == mole/km^2/hr   (moles per kilometer squared per hour)
-  aerosol == ug/m^2/s       (micro gram per meter squared per second)
+gas     == mole/km^2/hr   (moles per kilometer squared per hour)
+aerosol == ug/m^2/s       (micro gram per meter squared per second)
 
-  spc_mult is any legal, positive fortran real or integer number.  spc_mult defaults
-  to 1. and may vary from source emission species to source emission species.
+spc_mult is any legal, positive fortran real or integer number.  spc_mult defaults
+to 1. and may vary from source emission species to source emission species.
 
-  <emis_name> is of the form :
+<emis_name> is of the form :
 
-    <src_name{(cat_mult * <cat_name>){ + <cat_mult * <cat_name> + ... }})}
+<src_name{(cat_mult * <cat_name>){ + <cat_mult * <cat_name> + ... }})}
 
-  where :
+where :
 
-   - <src_name> matches one of the entries in the src_names list
-     defined by src_name
-   - cat_mult has the same definition as spc_mult
-   - <cat_name> matches one of the entries in the sub_categories list
+- <src_name> matches one of the entries in the src_names list
+defined by src_name
+- cat_mult has the same definition as spc_mult
+- <cat_name> matches one of the entries in the sub_categories list
 
-  The following are two examples of emis_map specification;
+The following are two examples of emis_map specification;
 
-  Example #1
-  ======= ==
+### Example #1
 
-  src_names       = 'CO'
-  src_file_suffix = '.nc'
-  cat_var_suffix  = '_emiss
-  emis_map = 'CO -> CO(ship)'
+src_names       = 'CO'
+src_file_suffix = '.nc'
+cat_var_suffix  = '_emiss
+emis_map = 'CO -> CO(ship)'
 
-  maps the source sub category emission variable ship_emiss in the source file CO.nc
-  to the WRF emission variable E_CO. Note this assumes the following defaults :
+maps the source sub category emission variable ship_emiss in the source file CO.nc
+to the WRF emission variable E_CO. Note this assumes the following defaults :
 
-  src_file_prefix = ' '
-  cat_var_prefix  = ' '
+src_file_prefix = ' '
+cat_var_prefix  = ' '
 
-  are being used.  Additionally note :
+are being used.  Additionally note :
 
-  - the output emission, E_CO, is assumed to be for a gas phase species
-  - the input species, CO, molecular weight is assumed to be contained
-    in the input file CO.nc
+- the output emission, E_CO, is assumed to be for a gas phase species
+- the input species, CO, molecular weight is assumed to be contained
+in the input file CO.nc
 
-  Example #2
-  ======= ==
+### Example #2
 
-  src_names       = 'ALK'
-  src_file_prefix = 'anthro_'
-  src_file_suffix = '_2012.nc'
-  sub_categories  = 'forest', 'airplane'
-  emis_map = 'PAR(a) -> ALK(.5*airplane+.25*forest)'
+src_names       = 'ALK'
+src_file_prefix = 'anthro_'
+src_file_suffix = '_2012.nc'
+sub_categories  = 'forest', 'airplane'
+emis_map = 'PAR(a) -> ALK(.5*airplane+.25*forest)'
 
-  maps the source sub category emission variables forest and airplane with respective
-  weighting of .25 and .5 in the source file anthro_ALK_2012.nc to the WRF emission
-  variable E_PAR. Note this assumes the following defaults :
+maps the source sub category emission variables forest and airplane with respective
+weighting of .25 and .5 in the source file anthro_ALK_2012.nc to the WRF emission
+variable E_PAR. Note this assumes the following defaults :
 
-  cat_var_prefix  = ' '
-  cat_var_suffix  = ' '
+cat_var_prefix  = ' '
+cat_var_suffix  = ' '
 
-  are being used.  Additionally note :
+are being used.  Additionally note :
 
-  - the output emission, E_PAR, is assumed to be for an aerosol species
+- the output emission, E_PAR, is assumed to be for an aerosol species
 
 serial_output (optional)
 -------------
 
-  Specifies whether or not the output WRF dataset(s) are diurnal
-  or serial.  The default value is .false. which means the anthro_emis
-  will output two diurnal datasets per domain :
+Specifies whether or not the output WRF dataset(s) are diurnal
+or serial.  The default value is .false. which means the anthro_emis
+will output two diurnal datasets per domain :
 
-  wrfchemi_00z_d<nn> and wrfchemi_12z_d<nn>
+wrfchemi_00z_d<nn> and wrfchemi_12z_d<nn>
 
-  each dataset will have 12 hourly values.  Presently ALL 12 hourly
-  values are identical.
+each dataset will have 12 hourly values.  Presently ALL 12 hourly
+values are identical.
 
-  If on the other hand you have specified :
+If on the other hand you have specified :
 
-  serial_output = .true.
+serial_output = .true.
 
-  in the namelist file then anthro_emis will produce a series of
-  WRF emission datasets per domain :
+in the namelist file then anthro_emis will produce a series of
+WRF emission datasets per domain :
 
-  wrfchemi_d<nn>_<date>
+wrfchemi_d<nn>_<date>
 
-  each dataset containing a single time point.  The exact number of datasets
-  produced depends on the :
+each dataset containing a single time point.  The exact number of datasets
+produced depends on the :
 
-  start_output_time, stop_output_time, and output_interval
+start_output_time, stop_output_time, and output_interval
 
-  namelist settings. (See examples directly below)
+namelist settings. (See examples directly below)
 
 start_output_time, stop_output_time, output_interval (optional)
-------------  -----------  ---------------
+--------------------------------------
 
-  For the case serial_output = .false. the start_output_time variable is
-  optional and the stop_output_time and output_interval variables are ignored.
+For the case serial_output = .false. the start_output_time variable is
+optional and the stop_output_time and output_interval variables are ignored.
 
-  For the case serial_output = .true. all the namelist variables are
-  optional.
+For the case serial_output = .true. all the namelist variables are
+optional.
 
-  If the start_output_time variable is not specified in the input namelist file
-  then start_output_time is taken from the wrfinput_d<nn> file(s).
+If the start_output_time variable is not specified in the input namelist file
+then start_output_time is taken from the wrfinput_d<nn> file(s).
 
-  If the stop_output_time variable is not specified in the input namelist file
-  then stop_output_time is assigned the value start_output_time on a per domain basis.
+If the stop_output_time variable is not specified in the input namelist file
+then stop_output_time is assigned the value start_output_time on a per domain basis.
 
-  If start_output_time and stop_output_time are assigned and serial_output = .true.
-  then stop_output_time must be >= start_output_time.  If this is not the case then
-  anthro_emis will error halt. 
+If start_output_time and stop_output_time are assigned and serial_output = .true.
+then stop_output_time must be >= start_output_time.  If this is not the case then
+anthro_emis will error halt. 
 
-  As an example suppose the wrfinput_d01 dataset has the WRF_time :
+As an example suppose the wrfinput_d01 dataset has the WRF_time :
 
-  2005-05-22_00:00:00  (zero hundred hours on May 22, 2005)
+2005-05-22_00:00:00  (zero hundred hours on May 22, 2005)
 
-  then by default either diurnal or serial emission output dataset(s)
-  will start at :
+then by default either diurnal or serial emission output dataset(s)
+will start at :
 
-  2005-05-22_00:00:00
+2005-05-22_00:00:00
 
-  Furthermore, anthro_emis will try to perform time interpolation on any
-  input datasets for the time 2005-05-22_00:00:00.  If the time 2005-05-22_00:00:00
-  is outside the times in the input dataset then anthro_emis will error halt.
+Furthermore, anthro_emis will try to perform time interpolation on any
+input datasets for the time 2005-05-22_00:00:00.  If the time 2005-05-22_00:00:00
+is outside the times in the input dataset then anthro_emis will error halt.
 
-  If we have serial_output = .true. then :
+If we have serial_output = .true. then :
 
-  - stop_output_time will be set to 2005-05-22_00:00:00
-  - a single output emissions dataset, wrfchemi_d01_2005-05-22_00:00:00, will
-    be produced
+- stop_output_time will be set to 2005-05-22_00:00:00
+- a single output emissions dataset, wrfchemi_d01_2005-05-22_00:00:00, will
+be produced
 
 output_interval
 ---------------
 
-  For the case serial_output = .true., output_interval defines the frequency at
-  which WRF output emission datasets are produced.  This namelist variable is
-  understood to be in seconds and defaults to value 3600 (one hour).
+For the case serial_output = .true., output_interval defines the frequency at
+which WRF output emission datasets are produced.  This namelist variable is
+understood to be in seconds and defaults to value 3600 (one hour).
 
-  Thus for the following namelist assignments :
+Thus for the following namelist assignments :
 
-  serial_output = .true.
-  start_output_time  = '2010-01-01_00:00:00'
-  stop_output_time   = '2010-01-02_00:00:00'
-  output_interval = 21600
+```
+serial_output = .true.
+start_output_time  = '2010-01-01_00:00:00'
+stop_output_time   = '2010-01-02_00:00:00'
+output_interval = 21600
+```
 
-  anthro_emis will attempt to output five WRF emission datasets, starting
-  on 2010-01-01_00:00:00 and ending on 2010-01-02_00:00:00, one every 6 hours
-  between the start and stop dates.  Bear in mind that anthro_emis will
-  attemp to do time interpolation on the input dataset(s) for the following times :
+anthro_emis will attempt to output five WRF emission datasets, starting
+on 2010-01-01_00:00:00 and ending on 2010-01-02_00:00:00, one every 6 hours
+between the start and stop dates.  Bear in mind that anthro_emis will
+attemp to do time interpolation on the input dataset(s) for the following times :
 
-  2010-01-01_00:00:00
-  2010-01-01_06:00:00
-  2010-01-01_12:00:00
-  2010-01-01_18:00:00
-  2010-01-02_00:00:00
-
-  and produce the following output datasets :
-
-  wrfchemi_d01_2010-01-01_00:00:00
-  wrfchemi_d01_2010-01-01_06:00:00
-  wrfchemi_d01_2010-01-01_12:00:00
-  wrfchemi_d01_2010-01-01_18:00:00
-  wrfchemi_d01_2010-01-02_00:00:00
-
-  each dataset containing emissions at one time.
+```
+2010-01-01_00:00:00
+2010-01-01_06:00:00
+2010-01-01_12:00:00
+2010-01-01_18:00:00
+2010-01-02_00:00:00
+```
+	  
+and produce the following output datasets :
+	  
+```
+wrfchemi_d01_2010-01-01_00:00:00
+wrfchemi_d01_2010-01-01_06:00:00
+wrfchemi_d01_2010-01-01_12:00:00
+wrfchemi_d01_2010-01-01_18:00:00
+wrfchemi_d01_2010-01-02_00:00:00
+```
+	  
+each dataset containing emissions at one time.
 
 data_yrs_offset (optional)
 ---------------
 
-  If for any reason the WRF emission output times are outside the input
-  emissions datasets times then anthro_emis will error halt.  And there are cases
-  where the year of the input and the year of the output datasets do not match.
+If for any reason the WRF emission output times are outside the input
+emissions datasets times then anthro_emis will error halt.  And there are cases
+where the year of the input and the year of the output datasets do not match.
 
-  For these situations you can use the data_yrs_offset variable to "align" the
-  year of the output times with the span of the input times.  The data_yrs_offset
-  variable defaults to 0.
+For these situations you can use the data_yrs_offset variable to "align" the
+year of the output times with the span of the input times.  The data_yrs_offset
+variable defaults to 0.
 
-  It is best to illustrate the use of data_yrs_offset with the following example :
+It is best to illustrate the use of data_yrs_offset with the following example :
 
-  serial_output = .true.
-  start_output_time  = '2013-01-01_00:00:00'
-  stop_output_time   = '2013-01-02_00:00:00'
-  output_interval = 21600
-  data_yrs_offset = -3
+```
+serial_output = .true.
+start_output_time  = '2013-01-01_00:00:00'
+stop_output_time   = '2013-01-02_00:00:00'
+output_interval = 21600
+data_yrs_offset = -3
+```
 
-  This is similar to the above example except the output year is 2013.  If you still
-  want to use data for the year 2010 the above data_yrs_offset setting will do the job.
-  Output at the first time point 2013-01-01_00:00:00 will attempt to interpolate the
-  input dataset at time 2010-01-01_00:00:00; not 2013-01-01_00:00:00.
+This is similar to the above example except the output year is 2013.  If you still
+want to use data for the year 2010 the above data_yrs_offset setting will do the job.
+Output at the first time point 2013-01-01_00:00:00 will attempt to interpolate the
+input dataset at time 2010-01-01_00:00:00; not 2013-01-01_00:00:00.
 
 domains
 -------
 
-  Specifies the total number of WRF domains.  Defaults to 1.  Remember, if you set :
+Specifies the total number of WRF domains.  Defaults to 1.  Remember, if you set :
 
-  domains = 2
+domains = 2
 
-  then anthro_emis will expect to find files :
+then anthro_emis will expect to find files :
 
-  wrfinput_d01, wrfinput_d02 in the directory indicated by the wrf_dir variable.
+wrfinput_d01, wrfinput_d02 in the directory indicated by the wrf_dir variable.
 
 -------------------------------------------------------------------------------------------------
 
