@@ -1,11 +1,9 @@
-----------------------------------------------------------------------------------------------
         If you require assistance with compiler and/or netcdf issues please use the
         discussion forum at:
 
         https://www2.acom.ucar.edu/wrf-chem/discussion-forum
 
         to post messages. You will will need to register before you use a specific forum.
-----------------------------------------------------------------------------------------------
 
         The anthro_emis utility, a single cpu executable, creates WRF gridded
         anthropogenic emissions files from lat-lon gridded input anthropogenic
