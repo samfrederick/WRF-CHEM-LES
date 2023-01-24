@@ -5,7 +5,7 @@ https://www2.acom.ucar.edu/wrf-chem/discussion-forum
 
 to post messages. You will will need to register before you use a specific forum.
 
-The anthro_emis utility, a single cpu executable, creates WRF gridded
+The `anthro_emis` utility, a single cpu executable, creates WRF gridded
 anthropogenic emissions files from lat-lon gridded input anthropogenic
 emission files.  The resulting WRF files can be two types;
 (a) diurnal and (b) serial.  There are two datasets with file names of
