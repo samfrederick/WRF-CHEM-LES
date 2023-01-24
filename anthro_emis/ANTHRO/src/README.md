@@ -129,29 +129,29 @@ following listing*).
 Directory
 -----------------
 
-| Variable name     |        Variable type                   |            default value|
-| ------------ |------------  | ------------|
-| anthro_dir         |       character(len=132),scalar         |          present working directory |
-| wrf_dir             |      character(len=132),scalar          |         present working directory |
+| Variable name | Variable type             | default value             |
+|---------------|---------------------------|---------------------------|
+| anthro_dir    | character(len=132),scalar | present working directory |
+| wrf_dir       | character(len=132),scalar | present working directory |
 
 Filename
 ========
 
-Variable name             Variable type                               default value
--------- ----             -------- ----                               ------- -----
-src_file_prefix           character(len=132),scalar                   blank string
-src_file_suffix           character(len=132),scalar                   blank string
+| Variable name | Variable type             | default value             |
+|---------------|---------------------------|---------------------------| 
+| src_file_prefix       |    character(len=132),scalar             |      blank string |
+| src_file_suffix        |   character(len=132),scalar              |     blank string |
 
 Timing
 ======
 
-Variable name             Variable type                               default value                Units/Notes
--------- ----             -------- ----                               ------- -----                -----------
-start_output_time         character(len=19),scalar                       (None)                    <date>
-stop_output_time          character(len=19),scalar                       (None)                    <date>
-output_interval           integer,scalar                                 3600                      seconds
-serial_output             logical,scalar                                 .false.
-data_yrs_offset           integer,scalar                                 0                         years
+| Variable name     |        Variable type                   |     default value| Units/Notes |
+| ------------ |------------  | ------------| -------------- |
+| start_output_time      |    character(len=19),scalar       |                 (None)           |          <date> | 
+| stop_output_time        |   character(len=19),scalar       |                 (None)           |          <date> | 
+| output_interval        |    integer,scalar                 |                 3600            |           seconds | 
+| serial_output          |    logical,scalar                |                  .false.     |    | 
+| data_yrs_offset       |     integer,scalar                |                  0             |             years| 
 
 Mapping
 =======
@@ -161,8 +161,9 @@ emis_map                  character(len=132),array(500)                  (None)
 
 Input File Variable Names
 ===== ==== ======== =====
-Variable name             Variable type                               default value
--------- ----             -------- ----                               ------- -----
+	
+| Variable name | Variable type             | default value             |
+|---------------|---------------------------|---------------------------|
 src_names                 character(len=32),array(50)                 See note below
 sub_categories            character(len=32),array(50)                 See note below
 cat_var_prefix            character(len=132),scalar                   blank_string
@@ -170,8 +171,9 @@ cat_var_suffix            character(len=132),scalar                   blank stri
 
 WRF Parameters
 === ==========
-Variable name             Variable type                               default value
--------- ----             -------- ----                               ------- -----
+	
+| Variable name | Variable type             | default value             |
+|---------------|---------------------------|---------------------------|
 domains                   integer,scalar                                  1
 emissions_zdim_stag       integer,scalar                                  10
 
