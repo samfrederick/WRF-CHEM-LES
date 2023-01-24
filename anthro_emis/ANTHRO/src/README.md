@@ -156,27 +156,27 @@ Timing
 Mapping
 -----------------
 	
-Variable name             Variable type                               default value
--------- ----             -------- ----                               ------- -----
-emis_map                  character(len=132),array(500)                  (None)                    
+| Variable name | Variable type             | default value             |
+|---------------|---------------------------|---------------------------| 
+| emis_map     |             character(len=132),array(500)        |          (None)                    |
 
 Input File Variable Names
 -----------------
 	
 | Variable name | Variable type             | default value             |
 |---------------|---------------------------|---------------------------|
-src_names                 character(len=32),array(50)                 See note below
-sub_categories            character(len=32),array(50)                 See note below
-cat_var_prefix            character(len=132),scalar                   blank_string
-cat_var_suffix            character(len=132),scalar                   blank string
+| src_names            |     character(len=32),array(50)           |      See note below |
+| sub_categories        |    character(len=32),array(50)            |     See note below |
+| cat_var_prefix         |   character(len=132),scalar               |    blank_string |
+| cat_var_suffix          |  character(len=132),scalar                |   blank string |
 
 WRF Parameters
 -----------------
 	
 | Variable name | Variable type             | default value             |
 |---------------|---------------------------|---------------------------|
-domains                   integer,scalar                                  1
-emissions_zdim_stag       integer,scalar                                  10
+| domains                |    integer,scalar         |                         1 |
+| emissions_zdim_stag     |  integer,scalar             |                      10 |
 
 
 **The following variables must be set in the input namelist file or anthro_emis will error halt.**
@@ -203,144 +203,164 @@ Namelist variable notes
 wrf_dir (optional)
 ------------------
 
-  Specifies the directory where anthro_emis expects to find the WRF input
-  files wrfinput_d<nn>.  Note that wrf_directory must NOT end with a "/"
-  as in :
+Specifies the directory where anthro_emis expects to find the WRF input
+files wrfinput_d<nn>.  Note that wrf_directory must NOT end with a "/"
+as in :
 
-  /myhome/WRF_data/
+```
+/myhome/WRF_data/
+```
 
-  the correct setting is :
+the correct setting is :
 
-  wrf_dir = '/myhome/WRF_data'
-
-  Defaults to the present working directory.
+```
+wrf_dir = '/myhome/WRF_data'
+```
+	
+Defaults to the present working directory.
 
 anthro_dir (optional)
 ----------
 
-  Specifies the directory where anthro_emis expects to find the lat-lon
-  anthropogenic emission datasets.  Again note that anthro_dir must NOT 
-  end with a "/" as in :
+Specifies the directory where anthro_emis expects to find the lat-lon
+anthropogenic emission datasets.  Again note that anthro_dir must NOT 
+end with a "/" as in :
 
-  /myhome/ANTHRO_data/
+```
+/myhome/ANTHRO_data/
+```
+	
+the correct setting is :
 
-  the correct setting is :
-
-  anthro_dir = '/myhome/ANTHRO_data'
-
-  Defaults to the present working directory.
+```
+anthro_dir = '/myhome/ANTHRO_data'
+```
+	
+Defaults to the present working directory.
 
 src_file_prefix, src_file_suffix (optional)
 ------------------------------
 
-  Used to form the fully anotated source emission dataset filename.  If we
-  have set the following namelist settings :
+Used to form the fully anotated source emission dataset filename.  If we
+have set the following namelist settings :
 
-  src_names       = 'CH3'
-  src_file_prefix = 'POET_anthro_emissions_'
-  src_file_prefix = '2003.nc'
+```
+src_names       = 'CH3'
+src_file_prefix = 'POET_anthro_emissions_'
+src_file_prefix = '2003.nc'
+```
 
-  then the anthro_emis utility will look for the the input emission dataset
+then the anthro_emis utility will look for the the input emission dataset
 
-  POET_anthro_emissions_CH3_2003.nc
-
-  and will error halt if it does not exist.
+```
+POET_anthro_emissions_CH3_2003.nc
+```
+	
+and will error halt if it does not exist.
 
 
 src_names (mandatory)
 ---------
 
-  Specifies a list of up to 50 source anthropogenic species.  Each name must be
-  must be <= 32 characters and have the form :
+Specifies a list of up to 50 source anthropogenic species.  Each name must be
+must be <= 32 characters and have the form :
 
-  <name>{(mol_wght)}
+```
+<name>{(mol_wght)}
+```
+	
+Where
 
-  Where
+- mol_wght is the molecular weight (g/mole) for the source species
 
-   - mol_wght is the molecular weight (g/mole) for the source species
+These names are used to :
 
-  These names are used to :
+*  map source anthropogenic emissions to WRF species anthropogenic emissions
+   via the emis_map namelist variable
+*  construct the full file specification for the source anthropogenic emission files
 
-  (i)   map source anthropogenic emissions to WRF species anthropogenic emissions
-	via the emis_map namelist variable
-  (ii)  construct the full file specification for the source anthropogenic emission files
+Each source file has a full file specification of the form :
 
-	Each source file has a full file specification of the form :
+```
+anthro_dir/filename
+```
+	
+where filename = src_file_prefix // src_name // src_file_suffix
 
-	anthro_dir/filename
-
-	where filename = src_file_prefix // src_name // src_file_suffix
-
-	For example if :
-
-	anthro_dir = '/myhome/ANTHRO_data'
-	src_name   = 'CO(28)'
-	src_file_prefix = ' '
-	src_file_suffix = '.nc'
-
-	then the full file specification would be :
-
-	/myhome/ANTHRO_data/CO.nc
-
-	Note that CO is assigned a molecular weight of 28 g/mole.  Additionally
-	note that only the <name> portion of a src_name entry is used for file
-	name construcution and species mapping.
+For example if :
+	
+```
+anthro_dir = '/myhome/ANTHRO_data'
+src_name   = 'CO(28)'
+src_file_prefix = ' '
+src_file_suffix = '.nc'
+```
+	
+then the full file specification would be :
+	
+```
+/myhome/ANTHRO_data/CO.nc
+```
+	
+Note that CO is assigned a molecular weight of 28 g/mole.  Additionally
+note that only the <name> portion of a src_name entry is used for file
+name construcution and species mapping.
 
 sub_categories (optional)
 --------------
 
-  Specifies a list of up to 50 source anthropogenic species.  Each name must be
-  <= 32 characters. The sub_catagories list members are used to construct the
-  full name of the source emission variables in the input emission datasets.
+Specifies a list of up to 50 source anthropogenic species.  Each name must be
+<= 32 characters. The sub_catagories list members are used to construct the
+full name of the source emission variables in the input emission datasets.
 
-  Each source emission variable name is of the form :
+Each source emission variable name is of the form :
 
-  cat_var_prefix // sub_category // cat_var_suffix
+cat_var_prefix // sub_category // cat_var_suffix
 
-  For example if :
+For example if :
 
-  sub_category   = 'industrial'
-  cat_var_suffix = '_emissions'
+sub_category   = 'industrial'
+cat_var_suffix = '_emissions'
 
-  then the sub category emission variable name would be :
+then the sub category emission variable name would be :
 
-  industrial_emissions
+industrial_emissions
 
-  since cat_var_prefix and cat_var_suffix default to the blank
-  string the default sub category emission variable name would
-  have simply been :
+since cat_var_prefix and cat_var_suffix default to the blank
+string the default sub category emission variable name would
+have simply been :
 
-  industrial
+industrial
 
-  The sub_categories list defaults to the following 9 names :
+The sub_categories list defaults to the following 9 names :
 
-  'agr', 'awb', 'dom', 'ene', 'ind', 'slv', 'tra', 'wst', 'ship'
+'agr', 'awb', 'dom', 'ene', 'ind', 'slv', 'tra', 'wst', 'ship'
 
-  Note that by default cat_var_prefix and cat_var_suffix are blank strings.
-  Thus by default all the sub category variables in all input datasets must
-  be one of the following names :
+Note that by default cat_var_prefix and cat_var_suffix are blank strings.
+Thus by default all the sub category variables in all input datasets must
+be one of the following names :
 
-  'agr', 'awb', 'dom', 'ene', 'ind', 'slv', 'tra', 'wst', 'ship'
+'agr', 'awb', 'dom', 'ene', 'ind', 'slv', 'tra', 'wst', 'ship'
 
-  The sub categories actually used in all the source emission datasets
-  must be specified in the sub_categories list.  The sub category variables
-  in each input dataset may vary from input dataset to input dataset.
+The sub categories actually used in all the source emission datasets
+must be specified in the sub_categories list.  The sub category variables
+in each input dataset may vary from input dataset to input dataset.
 
-  As an example suppose we had the following namelist settings :
+As an example suppose we had the following namelist settings :
 
-  src_file_suffix  = '.nc'
-  src_names        = 'CH4', 'H2CO'
-  sub_categories   = 'Transport', 'Burning', 'Urban'
-  emis_map         = 'CH4 -> CH4', 'H2CO -> H2CO(Burning)'
+src_file_suffix  = '.nc'
+src_names        = 'CH4', 'H2CO'
+sub_categories   = 'Transport', 'Burning', 'Urban'
+emis_map         = 'CH4 -> CH4', 'H2CO -> H2CO(Burning)'
 
-  In this case anthro_emis will look for :
+In this case anthro_emis will look for :
 
-   - the variables Transport, Burning, and Urban in the file CO.nc
+- the variables Transport, Burning, and Urban in the file CO.nc
 
-   - the variable  Burning in the file H2CO.nc
+- the variable  Burning in the file H2CO.nc
 
-  Note that the file H2CO.nc does not have to have Transport or Urban
-  variables in this case.
+Note that the file H2CO.nc does not have to have Transport or Urban
+variables in this case.
 
 
 cat_var_prefix, cat_var_suffix (optional)
@@ -715,6 +735,7 @@ will be combined to produce the final WRF CO anthropogenic emissions.
 
 In this case the namelist file would be :
 
+	```
 &CONTROL
 anthro_dir = '/myhome/ANTHRO_data'
 src_file_prefix = 'IPCC_emissions_'
@@ -723,7 +744,8 @@ src_names = 'CO', 'XCO'
 cat_var_suffix = '_emiss'
 emis_map  = 'CO -> CO(awb)+XCO(awb)'
 /
-
+```
+	
 The defaults are the same as in Example #1.  And the output files are the same
 as in example #1.  However for this example anthro_emis will attempt to :
 
