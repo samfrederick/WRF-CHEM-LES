@@ -56,7 +56,7 @@ If the molecular weight is specified via the src_names namelist variable
 then any molecular weight information in the input dataset is ignored.
 
 Input WRF datasets
------ --- --------
+-----------------
 
 There must be a WRF initial condition file per WRF domain.  Standard WRF
 initial condition files are denoted :
@@ -64,8 +64,8 @@ initial condition files are denoted :
 wrfinput_d<nn>
 
 Building anthro_emis
-======== ===========
-
+-----------------
+	
 In the anthro_emis source code directory, src, issue the command :
 
 csh make_anthro
@@ -113,7 +113,7 @@ functionality. [Examples for anthro_emis.inp are given below the
 following listing].
 
 Directory
-=========
+-----------------
 
 Variable name             Variable type                               default value
 -------- ----             -------- ----                               ------- -----
