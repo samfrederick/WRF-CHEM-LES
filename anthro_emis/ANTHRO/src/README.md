@@ -735,7 +735,7 @@ will be combined to produce the final WRF CO anthropogenic emissions.
 
 In this case the namelist file would be :
 
-	```
+```
 &CONTROL
 anthro_dir = '/myhome/ANTHRO_data'
 src_file_prefix = 'IPCC_emissions_'
