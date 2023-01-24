@@ -18,7 +18,7 @@ Throughout this note the following definitions pertain :
 <date> is a WRF date of the form yyyy-mm-dd_hh:mm:ss
 
 Input anthropogenic datasets
-============================
+****************************
 
 The input lat-lon anthropogenic emission files must be netcdf
 conforming datasets and have the following structure :
