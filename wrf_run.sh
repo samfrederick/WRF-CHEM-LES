@@ -33,7 +33,7 @@ export MKL_CBWR=COMPATIBLE
 
 time mpirun -np 16 ./ideal.exe 
 # modifying emissions data in wrfinput_d01 
-python edit_wrfinput_chem_profile.py
+python edit_wrfinput_chem_profile.py checkerboard_profile
 time mpirun -np 64 ./wrf.exe
 python create_move_output_files.py
 now=$(date +"%T") echo "End time : $now"
