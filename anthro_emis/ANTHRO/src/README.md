@@ -17,7 +17,8 @@ Throughout this note the following definitions pertain :
 <nn>   is a two digit integer representing a WRF domain
 <date> is a WRF date of the form yyyy-mm-dd_hh:mm:ss
 
-**Input anthropogenic datasets**
+Input anthropogenic datasets
+============================
 
 The input lat-lon anthropogenic emission files must be netcdf
 conforming datasets and have the following structure :
