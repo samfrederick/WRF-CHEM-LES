@@ -69,13 +69,13 @@ conforming datasets and have the following structure:
 Additionally the input anthropogenic dataset may have the molecular
 weight of the input species in g/mole as either:
 
-  * A variable with the name molecular_weight
-  * A global attribute with the name molecular_weight
-  * A sub category variable attribute with the name molecular_weight
+  * A variable with the name `molecular_weight`
+  * A global attribute with the name `molecular_weight`
+  * A sub category variable attribute with the name `molecular_weight`
 
 If the input dataset does not specify the species molecular weight
 then the user may specify the input species molecular weight in the
-src_names namelist variable (see below).  
+`src_names` namelist variable (see below).  
 
 If the molecular weight is specified via the `src_names` namelist variable
 then any molecular weight information in the input dataset is ignored.
@@ -764,18 +764,18 @@ right to the results:
 - read and time interpolate the following input files and sub categories:
 
     ```console
-        IPCC_emissions_OC_anthro_2000.nc
-        'agr', 'awb', 'dom', 'ene', 'ind', 'slv', 'tra', 'wst', 'ship'
-        IPCC_emissions_CO_anthro_2000.nc
-        'agr', 'awb', 'dom', 'ene', 'ind', 'slv', 'wst', 'ship'
-        IPCC_emissions_NO_anthro_2000.nc
-        'ene', 'ind', 'slv'
-        IPCC_emissions_NH3_anthro_2000.nc
-        'awb', 'wst'
-        IPCC_emissions_SO2_anthro_2000.nc
-        'agr', 'awb', 'dom', 'ene', 'ind', 'slv', 'tra', 'wst', 'ship'
-        IPCC_emissions_CH2O_anthro_2000.nc
-        'agr', 'awb', 'dom', 'ene', 'ind', 'slv', 'tra', 'wst', 'ship'
+    IPCC_emissions_OC_anthro_2000.nc
+    'agr', 'awb', 'dom', 'ene', 'ind', 'slv', 'tra', 'wst', 'ship'
+    IPCC_emissions_CO_anthro_2000.nc
+    'agr', 'awb', 'dom', 'ene', 'ind', 'slv', 'wst', 'ship'
+    IPCC_emissions_NO_anthro_2000.nc
+    'ene', 'ind', 'slv'
+    IPCC_emissions_NH3_anthro_2000.nc
+    'awb', 'wst'
+    IPCC_emissions_SO2_anthro_2000.nc
+    'agr', 'awb', 'dom', 'ene', 'ind', 'slv', 'tra', 'wst', 'ship'
+    IPCC_emissions_CH2O_anthro_2000.nc
+    'agr', 'awb', 'dom', 'ene', 'ind', 'slv', 'tra', 'wst', 'ship'
     ```
 
     > NOTE: the CO sub categories are used to form both the CO and BIGALK output emissions except for the tra sub category.
