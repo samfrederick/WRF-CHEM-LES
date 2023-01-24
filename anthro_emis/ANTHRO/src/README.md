@@ -315,12 +315,16 @@ full name of the source emission variables in the input emission datasets.
 
 Each source emission variable name is of the form :
 
+```
 cat_var_prefix // sub_category // cat_var_suffix
+```
 
 For example if :
 
+```
 sub_category   = 'industrial'
 cat_var_suffix = '_emissions'
+```
 
 then the sub category emission variable name would be :
 
@@ -348,10 +352,12 @@ in each input dataset may vary from input dataset to input dataset.
 
 As an example suppose we had the following namelist settings :
 
+```console
 src_file_suffix  = '.nc'
 src_names        = 'CH4', 'H2CO'
 sub_categories   = 'Transport', 'Burning', 'Urban'
 emis_map         = 'CH4 -> CH4', 'H2CO -> H2CO(Burning)'
+```
 
 In this case anthro_emis will look for :
 
@@ -369,8 +375,10 @@ cat_var_prefix, cat_var_suffix (optional)
 Used to form the fully anotated source emission variable name.  If we
 have set the following namelist definitions:
 
+```console
 cat_subcategories = 'industrial'
 cat_var_prefix = 'automobile_'
+```
 
 then the anthro_emis utility will look for the the input emission variable
 
@@ -388,78 +396,88 @@ with each array element 132 characters long.
 Each entry in the is of the form :
 
 
-<WRF_emis> -> spc_mult * <emis_name>{ + spc_mult * <emis_name> + ... }
+`<WRF_emis> -> spc_mult * <emis_name>{ + spc_mult * <emis_name> + ... }`
 
 Where
 
-<WRF_emis> is of the form :
+`<WRF_emis>` is of the form :
 
-<name>{(a)}
+`<name>{(a)}`
 
-wherein <name> will be used to construct the actual name of the WRF species
+wherein `<name>` will be used to construct the actual name of the WRF species
 anthropogenic emission in the output dataset.  The actual name in the output
-dataset is of the form E_<name>.  
+dataset is of the form `E_<name>`.  
 
 If present the "(a)" string denotes the WRF output species to be an aerosol.
 If no "(a)" string is present the WRF output species is understood to be a gas.
 WRF gas phase and aerosol species have different emission units :
 
+```console
 gas     == mole/km^2/hr   (moles per kilometer squared per hour)
 aerosol == ug/m^2/s       (micro gram per meter squared per second)
+```
 
 spc_mult is any legal, positive fortran real or integer number.  spc_mult defaults
 to 1. and may vary from source emission species to source emission species.
 
-<emis_name> is of the form :
+`<emis_name>` is of the form :
 
-<src_name{(cat_mult * <cat_name>){ + <cat_mult * <cat_name> + ... }})}
+`<src_name{(cat_mult * <cat_name>){ + <cat_mult * <cat_name> + ... }})}`
 
 where :
 
-- <src_name> matches one of the entries in the src_names list
+- `<src_name>` matches one of the entries in the src_names list
 defined by src_name
-- cat_mult has the same definition as spc_mult
-- <cat_name> matches one of the entries in the sub_categories list
+- `cat_mult` has the same definition as `spc_mult`
+- `<cat_name>` matches one of the entries in the sub_categories list
 
 The following are two examples of emis_map specification;
 
 ### Example #1
 
+```console
 src_names       = 'CO'
 src_file_suffix = '.nc'
 cat_var_suffix  = '_emiss
 emis_map = 'CO -> CO(ship)'
+```
 
 maps the source sub category emission variable ship_emiss in the source file CO.nc
 to the WRF emission variable E_CO. Note this assumes the following defaults :
 
+```console
 src_file_prefix = ' '
 cat_var_prefix  = ' '
+```
 
 are being used.  Additionally note :
 
 - the output emission, E_CO, is assumed to be for a gas phase species
 - the input species, CO, molecular weight is assumed to be contained
-in the input file CO.nc
+  in the input file CO.nc
 
 ### Example #2
 
+```console
 src_names       = 'ALK'
 src_file_prefix = 'anthro_'
 src_file_suffix = '_2012.nc'
 sub_categories  = 'forest', 'airplane'
 emis_map = 'PAR(a) -> ALK(.5*airplane+.25*forest)'
+```
 
 maps the source sub category emission variables forest and airplane with respective
 weighting of .25 and .5 in the source file anthro_ALK_2012.nc to the WRF emission
 variable E_PAR. Note this assumes the following defaults :
 
+```console
 cat_var_prefix  = ' '
 cat_var_suffix  = ' '
+```
 
 are being used.  Additionally note :
 
-- the output emission, E_PAR, is assumed to be for an aerosol species
+- the output emission, `E_PAR`, is assumed to be for an aerosol species
 
 serial_output (optional)
 -------------
@@ -468,19 +486,23 @@ Specifies whether or not the output WRF dataset(s) are diurnal
 or serial.  The default value is .false. which means the anthro_emis
 will output two diurnal datasets per domain :
 
-wrfchemi_00z_d<nn> and wrfchemi_12z_d<nn>
+`wrfchemi_00z_d<nn> and wrfchemi_12z_d<nn>`
 
 each dataset will have 12 hourly values.  Presently ALL 12 hourly
 values are identical.
 
 If on the other hand you have specified :
 
+```console
 serial_output = .true.
+```
 
 in the namelist file then anthro_emis will produce a series of
 WRF emission datasets per domain :
 
+```console
 wrfchemi_d<nn>_<date>
+```
 
 each dataset containing a single time point.  The exact number of datasets
 produced depends on the :
@@ -612,8 +634,9 @@ represent any particular WRF-Chem chemical option.  Rather they are only for pur
 of illustrating how to set variables in the anthro_emis namelist file.
 
 Example 1
-======= =
+========
 
+```console
 &CONTROL
 anthro_dir = '/myhome/ANTHRO_data'
 src_file_prefix = 'IPCC_emissions_'
@@ -622,6 +645,7 @@ src_names = 'CO'
 cat_var_suffix = '_emiss'
 emis_map  = 'CO -> CO(awb)'
 /
+```
 
 Relevant defaults :
 
@@ -647,7 +671,7 @@ Key assumptions :
 
 What if :
 
-(1) I want serial output for the time 2000-01-01_00:00:00
+1. I want serial output for the time 2000-01-01_00:00:00
 
     - add the following line to the namelist input file :
 
@@ -657,7 +681,7 @@ What if :
 
       wrfchemi_d01_2000-01-01_00:00:00
 
-(2) I want the serial output file to be setup for the time 2012-01-01_00:00:00
+2. I want the serial output file to be setup for the time 2012-01-01_00:00:00
 
     - add the following lines to the namelist input file :
 
@@ -672,7 +696,7 @@ What if :
       NOTE: you are still using input data from the year 2000 but setting up
       a WRF emission file for the time 2012-01-01_00:00:00
 
-(3) I want the output variable E_CO to use all the sub categories with equal
+3. I want the output variable E_CO to use all the sub categories with equal
     weight of 1
 
     - change the following line in the namelist input file :
@@ -684,8 +708,9 @@ What if :
       emis_map  = 'CO -> CO'
 
 Example 2
-======= =
+========
 
+```console
 &CONTROL
 anthro_dir = '/myhome/ANTHRO_data'
 src_file_prefix = 'IPCC_emissions_'
@@ -696,6 +721,7 @@ emis_map = 'OC(a) -> OC',
     'BIGALK -> .5 * CO(.2*awb+.3*dom+.4*ene+.6*slv+.7*tra+.8*wst+ship)',
     ' + 1.3*CH2O'
 /
+```
 
 Rather than go through all the defaults, conditions, whatifs lets skip
 right to the results :
@@ -704,18 +730,20 @@ Anthro_emis will attemp to :
 
 - read and time interpolate the following input files and sub categories :
 
-    IPCC_emissions_OC_anthro_2000.nc
-     'agr', 'awb', 'dom', 'ene', 'ind', 'slv', 'tra', 'wst', 'ship'
-    IPCC_emissions_CO_anthro_2000.nc
-     'agr', 'awb', 'dom', 'ene', 'ind', 'slv', 'wst', 'ship'
-    IPCC_emissions_NO_anthro_2000.nc
-     'ene', 'ind', 'slv'
-    IPCC_emissions_NH3_anthro_2000.nc
-     'awb', 'wst'
-    IPCC_emissions_SO2_anthro_2000.nc
-     'agr', 'awb', 'dom', 'ene', 'ind', 'slv', 'tra', 'wst', 'ship'
-    IPCC_emissions_CH2O_anthro_2000.nc
-     'agr', 'awb', 'dom', 'ene', 'ind', 'slv', 'tra', 'wst', 'ship'
+    ```console
+        IPCC_emissions_OC_anthro_2000.nc
+        'agr', 'awb', 'dom', 'ene', 'ind', 'slv', 'tra', 'wst', 'ship'
+        IPCC_emissions_CO_anthro_2000.nc
+        'agr', 'awb', 'dom', 'ene', 'ind', 'slv', 'wst', 'ship'
+        IPCC_emissions_NO_anthro_2000.nc
+        'ene', 'ind', 'slv'
+        IPCC_emissions_NH3_anthro_2000.nc
+        'awb', 'wst'
+        IPCC_emissions_SO2_anthro_2000.nc
+        'agr', 'awb', 'dom', 'ene', 'ind', 'slv', 'tra', 'wst', 'ship'
+        IPCC_emissions_CH2O_anthro_2000.nc
+        'agr', 'awb', 'dom', 'ene', 'ind', 'slv', 'tra', 'wst', 'ship'
+    ```
 
     NOTE: the CO sub categories are used to form both the CO and BIGALK output
 	  emissions except for the tra sub category.
@@ -727,7 +755,7 @@ Anthro_emis will attemp to :
 - OC output will have aerosol units, CO and BIGALK gas units
 
 Example 3
-======= =
+========
 
 Suppose I want, as in Example #1 above, to map input emissions to
 the WRF variable CO but I want to use two datasets whose emissions
@@ -767,12 +795,14 @@ which has been given the name XCO.
 *******************************************************************************************
 
 Running anthro_emis
-======= ===========
+==================
 
 To run anthro_emis issue the command:
 
+```console
 anthro_emis < anthro_emis.inp {> anthro_emis.out}
 
+```
 (Redirected input is required. Redirected output to anthro_emis.out is optional.
  The anthro_emis.inp and anthro_emis.out filenames are for illustration only; you
  may use any valid filename in place of anthro_emis.inp, anthro_emis.out)
@@ -782,5 +812,4 @@ Contacts
 
 For questions or comments please send email to:
 
-Stacy Walters           stacy@ucar.edu 
-Gabriele Pfister	pfister@ucar.edu
+Stacy Walters (stacy@ucar.edu),  Gabriele Pfister (pfister@ucar.edu)
