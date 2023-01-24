@@ -23,30 +23,30 @@ Input anthropogenic datasets
 The input lat-lon anthropogenic emission files must be netcdf
 conforming datasets and have the following structure :
 
-(1) each input dataset is for one input species
+1. each input dataset is for one input species
 
-(2) lon and lat one dimensional variables containg the longitudes
+2. lon and lat one dimensional variables containg the longitudes
     and latitudes in degrees about which each input grid cell is
     centered.  The lon and lat variables must be monotonically
     increasing.
 
-(3) one of the following :
+3. one of the following :
     (i)  date and datesec variables containing the date and seconds
 	 in day. The date is an integer encoding the date yyyymmdd.
     (ii) a time variable representing the time since a given date.
 	 The base date must be contained in the time variable units
 	 attribute and be of the form yyyy-mm-dd.
 
-(4) one or more variables containing the actual anthropogenic
+4. one or more variables containing the actual anthropogenic
     emissions, designated as sub categories, which must be dimensioned
     as (lon,lat,time).
 
 Additionally the input anthropogenic dataset may have the molecular
 weight of the input species in g/mole as either :
 
-  (i)   a variable with the name molecular_weight
-  (ii)  a global attribute with the name molecular_weight
-  (iii) a sub category variable attribute with the name molecular_weight
+  * a variable with the name molecular_weight
+  * a global attribute with the name molecular_weight
+  * a sub category variable attribute with the name molecular_weight
 
 If the input dataset does not specify the species molecular weight
 then the user may specify the input species molecular weight in the
