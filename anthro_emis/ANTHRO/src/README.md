@@ -214,13 +214,11 @@ emis_map
 Although none of the remaining namelist variables need be set it is most likely that some of the
 remaining variables will be set.
 
-******************************************************************************
-***  From this point forward the {} pair is used to mark optional input.   ***
-***  The actual input comprises the characters enclosed by the {} pair.    ***
-***  The {} pair is NOT part of the namelist input.                        ***
-***  Similarly the <> pair denotes a generic input and the <> pair is      ***
-***  NOT part of the namelist input.                                       ***
-******************************************************************************
+**Formatting Note:**
+> **From this point forward the `{}` pair is used to mark optional input.**   
+> The actual input comprises the characters enclosed by the `{}` pair. The `{}` 
+> pair is *NOT* part of the namelist input. **Similarly the `<>` pair denotes a 
+> generic input** and the `<>` pair is NOT part of the namelist input.                                       
 
 Namelist variable notes
 =======================
@@ -310,7 +308,7 @@ Each source file has a full file specification of the form:
 anthro_dir/filename
 ```
 	
-where filename = src_file_prefix // src_name // src_file_suffix
+where `filename = src_file_prefix // src_name // src_file_suffix`
 
 For example if:
 	
@@ -335,7 +333,7 @@ sub_categories (optional)
 --------------
 
 Specifies a list of up to 50 source anthropogenic species.  Each name must be
-<= 32 characters. The sub_catagories list members are used to construct the
+<= 32 characters. The `sub_categories` list members are used to construct the
 full name of the source emission variables in the input emission datasets.
 
 Each source emission variable name is of the form:
@@ -353,13 +351,17 @@ cat_var_suffix = '_emissions'
 
 then the sub category emission variable name would be:
 
-`industrial_emissions`
+```console
+industrial_emissions
+```
 
 since cat_var_prefix and cat_var_suffix default to the blank
 string the default sub category emission variable name would
 have simply been:
 
-`industrial`
+```console
+industrial
+```
 
 The sub_categories list defaults to the following 9 names:
 
@@ -405,7 +407,7 @@ cat_subcategories = 'industrial'
 cat_var_prefix = 'automobile_'
 ```
 
-then the anthro_emis utility will look for the the input emission variable
+then the `anthro_emis` utility will look for the the input emission variable
 
 `automobile_industrial`
 
@@ -415,7 +417,7 @@ emis_map (mandatory)
 --------
 
 Specifies the mapping between WRF species anthropogenic emissions and source lat-lon
-emission datasets.  The emis_map namelist variable is a character array of size 500
+emission datasets.  The `emis_map` namelist variable is a character array of size 500
 with each array element 132 characters long.  
 
 Each entry in the is of the form:
@@ -442,8 +444,8 @@ gas     == mole/km^2/hr   (moles per kilometer squared per hour)
 aerosol == ug/m^2/s       (micro gram per meter squared per second)
 ```
 
-spc_mult is any legal, positive fortran real or integer number.  spc_mult defaults
-to 1. and may vary from source emission species to source emission species.
+`spc_mult` is any legal, positive fortran real or integer number.  `spc_mult` defaults
+to `1.` and may vary from source emission species to source emission species.
 
 `<emis_name>` is of the form:
 
@@ -456,7 +458,7 @@ defined by src_name
 - `cat_mult` has the same definition as `spc_mult`
 - `<cat_name>` matches one of the entries in the sub_categories list
 
-The following are two examples of emis_map specification;
+**The following are two examples of `emis_map` specification:**
 
 ### Example #1
 
@@ -467,7 +469,7 @@ cat_var_suffix  = '_emiss
 emis_map = 'CO -> CO(ship)'
 ```
 
-maps the source sub category emission variable ship_emiss in the source file `CO.nc`
+maps the source sub category emission variable `ship_emiss` in the source file `CO.nc`
 to the WRF emission variable `E_CO`. Note this assumes the following defaults:
 
 ```console
@@ -508,7 +510,7 @@ serial_output (optional)
 -------------
 
 Specifies whether or not the output WRF dataset(s) are diurnal
-or serial.  The default value is `.false`. which means the anthro_emis
+or serial.  The default value is `.false`. which means the `anthro_emis`
 will output two diurnal datasets per domain:
 
 `wrfchemi_00z_d<nn> and wrfchemi_12z_d<nn>`
@@ -522,7 +524,7 @@ If on the other hand you have specified:
 serial_output = .true.
 ```
 
-in the namelist file then anthro_emis will produce a series of
+in the namelist file then `anthro_emis` will produce a series of
 WRF emission datasets per domain:
 
 ```console
@@ -539,23 +541,23 @@ namelist settings. (See examples directly below)
 start_output_time, stop_output_time, output_interval (optional)
 --------------------------------------
 
-For the case serial_output = .false. the start_output_time variable is
+For the case `serial_output = .false.` the start_output_time variable is
 optional and the stop_output_time and output_interval variables are ignored.
 
-For the case serial_output = .true. all the namelist variables are
+For the case `serial_output = .true.` all the namelist variables are
 optional.
 
 If the start_output_time variable is not specified in the input namelist file
-then start_output_time is taken from the wrfinput_d<nn> file(s).
+then `start_output_time` is taken from the `wrfinput_d<nn>` file(s).
 
-If the stop_output_time variable is not specified in the input namelist file
-then stop_output_time is assigned the value start_output_time on a per domain basis.
+If the `stop_output_time` variable is not specified in the input namelist file
+then `stop_output_time` is assigned the value `start_output_time` on a per domain basis.
 
-If start_output_time and stop_output_time are assigned and serial_output = .true.
-then stop_output_time must be >= start_output_time.  If this is not the case then
-anthro_emis will error halt. 
+If `start_output_time` and stop_output_time are assigned and `serial_output = .true.`
+then `stop_output_time` must be >= `start_output_time`.  If this is not the case then
+`anthro_emis` will error halt. 
 
-As an example suppose the wrfinput_d01 dataset has the WRF_time:
+As an example suppose the `wrfinput_d01` dataset has the WRF_time:
 
 `2005-05-22_00:00:00  (zero hundred hours on May 22, 2005)`
 
@@ -564,13 +566,13 @@ will start at:
 
 `2005-05-22_00:00:00`
 
-Furthermore, anthro_emis will try to perform time interpolation on any
+Furthermore, `anthro_emis` will try to perform time interpolation on any
 input datasets for the time `2005-05-22_00:00:00`.  If the time `2005-05-22_00:00:00`
-is outside the times in the input dataset then anthro_emis will error halt.
+is outside the times in the input dataset then `anthro_emis` will error halt.
 
-If we have serial_output = .true. then:
+If we have `serial_output = .true.` then:
 
-- stop_output_time will be set to `2005-05-22_00:00:00`
+- `stop_output_time` will be set to `2005-05-22_00:00:00`
 - a single output emissions dataset, `wrfchemi_d01_2005-05-22_00:00:00`, will
 be produced
 
@@ -622,11 +624,11 @@ If for any reason the WRF emission output times are outside the input
 emissions datasets times then anthro_emis will error halt.  And there are cases
 where the year of the input and the year of the output datasets do not match.
 
-For these situations you can use the data_yrs_offset variable to "align" the
-year of the output times with the span of the input times.  The data_yrs_offset
+For these situations you can use the `data_yrs_offset` variable to "align" the
+year of the output times with the span of the input times.  The `data_yrs_offset`
 variable defaults to 0.
 
-It is best to illustrate the use of data_yrs_offset with the following example:
+It is best to illustrate the use of `data_yrs_offset` with the following example:
 
 ```
 serial_output = .true.
@@ -644,7 +646,7 @@ input dataset at time `2010-01-01_00:00:00`; not `2013-01-01_00:00:00`.
 domains
 -------
 
-Specifies the total number of WRF domains.  Defaults to 1.  Remember, if you set:
+Specifies the total number of WRF domains.  Defaults to `1.`  Remember, if you set:
 
 ```console
 domains = 2
@@ -661,7 +663,7 @@ Namelist Input File Examples
 
 Following are a few examples of complete namelist input files.  As such they do NOT
 represent any particular WRF-Chem chemical option.  Rather they are only for purposes
-of illustrating how to set variables in the anthro_emis namelist file.
+of illustrating how to set variables in the `anthro_emis` namelist file.
 
 Example 1
 ---------
@@ -679,63 +681,64 @@ emis_map  = 'CO -> CO(awb)'
 
 Relevant defaults:
 
-- wrf_dir = present working directory
-- domains = 1
-- serial_output = .false.
-- cat_var_prefix = ' '
-- cat_subcategories = 'agr', 'awb', 'dom', 'ene', 'ind', 'slv', 'tra', 'wst', 'ship'
-- the time in the wrfinput_d01 file is 2000-01-01_00:00:00
+- `wrf_dir = present working directory`
+- `domains = 1`
+- `serial_output = .false.`
+- `cat_var_prefix = ' '`
+- `cat_subcategories = 'agr', 'awb', 'dom', 'ene', 'ind', 'slv', 'tra', 'wst', 'ship'`
+- the time in the `wrfinput_d01` file is `2000-01-01_00:00:00`
 
 Anthro_emis will attemp to:
 
-- read the wrfinput_d01 file in the present working directory
-- read the variable awb_emiss from the input source file:
-  /myhome/ANTHRO_data/IPCC_emissions_CO_anthropogenic_2000_0.1x0.1_v1_jan2012.nc
-- interpolate the input file to the time 2000-01-01_00:00:00
-- output files wrfchemi_00z_d01, wrfchemi_12z_d01 with the gas phase
-  emission variable E_CO
+  - read the `wrfinput_d01` file in the present working directory
+- read the variable `awb_emiss` from the input source file:
+  `/myhome/ANTHRO_data/IPCC_emissions_CO_anthropogenic_2000_0.1x0.1_v1_jan2012.nc`
+- interpolate the input file to the time `2000-01-01_00:00:00`
+- output files `wrfchemi_00z_d01`, `wrfchemi_12z_d01` with the gas phase
+  emission variable `E_CO`
 
 Key assumptions:
 
-- the input source file times bracket the time 2000-01-01_00:00:00
+- the input source file times bracket the time `2000-01-01_00:00:00`
 
 What if:
 
-1. I want serial output for the time 2000-01-01_00:00:00
+1. I want serial output for the time `2000-01-01_00:00:00`
 
     - add the following line to the namelist input file:
 
-      serial_output = .true.
+      `serial_output = .true.`
 
     - this will output the file:
 
-      wrfchemi_d01_2000-01-01_00:00:00
+      `wrfchemi_d01_2000-01-01_00:00:00`
 
-2. I want the serial output file to be setup for the time 2012-01-01_00:00:00
+2. I want the serial output file to be setup for the time `2012-01-01_00:00:00`
 
     - add the following lines to the namelist input file:
 
+      ```console
       serial_output = .true.
       start_output_time  = 2012-01-01_00:00:00
       data_yrs_offset = -12
+      ```
 
     - this will output the file:
 
-      wrfchemi_d01_2012-01-01_00:00:00
+      `wrfchemi_d01_2012-01-01_00:00:00`
 
-      NOTE: you are still using input data from the year 2000 but setting up
-      a WRF emission file for the time 2012-01-01_00:00:00
+      > NOTE: you are still using input data from the year 2000 but setting up a WRF emission file for the time `2012-01-01_00:00:00`
 
 3. I want the output variable E_CO to use all the sub categories with equal
     weight of 1
 
     - change the following line in the namelist input file:
 
-      emis_map  = 'CO -> CO(awb)'
+      `emis_map  = 'CO -> CO(awb)'`
 
       to
 
-      emis_map  = 'CO -> CO'
+      `emis_map  = 'CO -> CO'`
 
 Example 2
 ---------
@@ -756,7 +759,7 @@ emis_map = 'OC(a) -> OC',
 Rather than go through all the defaults, conditions, whatifs lets skip
 right to the results:
 
-Anthro_emis will attemp to:
+`Anthro_emis` will attemp to:
 
 - read and time interpolate the following input files and sub categories:
 
@@ -775,20 +778,20 @@ Anthro_emis will attemp to:
         'agr', 'awb', 'dom', 'ene', 'ind', 'slv', 'tra', 'wst', 'ship'
     ```
 
-    NOTE: the CO sub categories are used to form both the CO and BIGALK output
-	  emissions except for the tra sub category.
-    NOTE: both the source species and sub categories have non-unity weight factors
+    > NOTE: the CO sub categories are used to form both the CO and BIGALK output emissions except for the tra sub category.
 
-- output files wrfchemi_00z_d01, wrfchemi_12z_d01 with the emission variables
-  E_OC, E_CO, and E_BIGALK
+    > NOTE: both the source species and sub categories have non-unity weight factors
 
-- OC output will have aerosol units, CO and BIGALK gas units
+- output files `wrfchemi_00z_d01`, `wrfchemi_12z_d01` with the emission variables
+  `E_OC`, `E_CO`, and `E_BIGALK`
+
+- `OC` output will have aerosol units, `CO` and `BIGALK` gas units
 
 Example 3
 ---------
 
 Suppose I want, as in Example #1 above, to map input emissions to
-the WRF variable CO but I want to use two datasets whose emissions
+the WRF variable `CO` but I want to use two datasets whose emissions
 will be combined to produce the final WRF CO anthropogenic emissions.
 
 In this case the namelist file would be:
@@ -805,19 +808,19 @@ emis_map  = 'CO -> CO(awb)+XCO(awb)'
 ```
 	
 The defaults are the same as in Example #1.  And the output files are the same
-as in example #1.  However for this example anthro_emis will attempt to:
+as in example #1.  However for this example `anthro_emis` will attempt to:
 
-- read the awb_emiss variable in the file
-  /myhome/ANTHRO_data/IPCC_emissions_CO_anthropogenic_2000_0.1x0.1_v1_jan2012.nc
+- read the `awb_emiss` variable in the file
+  `/myhome/ANTHRO_data/IPCC_emissions_CO_anthropogenic_2000_0.1x0.1_v1_jan2012.nc`
 
-- read the awb_emiss variable in the file
-  /myhome/ANTHRO_data/IPCC_emissions_XCO_anthropogenic_2000_0.1x0.1_v1_jan2012.nc
+- read the `awb_emiss` variable in the file
+  `/myhome/ANTHRO_data/IPCC_emissions_XCO_anthropogenic_2000_0.1x0.1_v1_jan2012.nc`
 
-- combine the two inputs with equal weight of 1., the defaults, to produce the
-  E_CO output variable
+- combine the two inputs with equal weight of `1.`, the defaults, to produce the
+  `E_CO` output variable
 
-Note that the src_names variable had to be modified to include a second source
-which has been given the name XCO.
+Note that the `src_names` variable had to be modified to include a second source
+which has been given the name `XCO`.
 
 *******************************************************************************************
 **For an input namelist file you can use with the MOZCART_KPP WRF chem option 
