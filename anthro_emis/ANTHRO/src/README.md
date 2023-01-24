@@ -61,15 +61,19 @@ Input WRF datasets
 There must be a WRF initial condition file per WRF domain.  Standard WRF
 initial condition files are denoted :
 
+```
 wrfinput_d<nn>
+```
 
 Building anthro_emis
 -----------------
 	
 In the anthro_emis source code directory, src, issue the command :
-
+	
+```
 csh make_anthro
-
+```
+	
 That's it.  If all goes well you will have the executable file anthro_emis
 in the anthro_emis source directory.  The make_anthro script is presently
 setup to compile on either Linux systems using the Portland Group Fortan90
@@ -77,30 +81,40 @@ compiler, pgf90, or on AIX systems using the xlf90 compiler.  If you need
 to use another compiler such as the Intel Fortran90 compiler, ifort, you 
 can set the environment variable
 
+```	
 FC
-
+```
+	
 before invoking make_anthro.  As an example you would issue
 the command :
 
+```	
 export FC=ifort 
-
+```
+	
 in the sh, bash, or ksh Linux shells or
 
+```	
 setenv FC ifort
-
+```
+	
 in the csh or tcsh shells.
 
 The anthro_emis utility requires the netcdf library and make_anthro
 will attempt to locate the libnetcdf.a library.  However, this is
 not a foolproof process and thus you may need to set the environment variable
 
+```
 NETCDF_DIR
+```
 
 to the directory containing the file lib/libnetcdf.a.  As an example
 in the ksh shell, if you issued the command :
 
+```
 export NETCDF_DIR=/usr/local/netcdf-4.1.2
-
+```
+	
 then make_anthro would look for the file libnetcdf.a in the
 directory /usr/local/netcdf-4.1.2/lib (make_anthro automatically
 appends the /lib string to the NETCDF_DIR string.
