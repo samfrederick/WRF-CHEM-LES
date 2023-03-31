@@ -423,3 +423,6 @@ EDGAR_HTAP*
 *.npy
 *.csv
 *.png
+test_scripts/example_emissions.ipynb
+test_scripts/input_gas_data.ipynb
+move_output.py
