@@ -1,0 +1,64 @@
+  
+ main: nemis =            1
+ =================================================
+ anthro_map(           1 ):
+ src species count =            1
+ emis species name = SO2                             
+   1.00000000    
+ SO2                             
+ cat wghts
+   1.00000000    
+  
+ src active
+ T
+ active src =            1
+ =================================================
+  
+ wrf_file: MAP_PROJ is LATLON
+  
+  
+ proj_init: projection =  0
+ proj_init: west-east,south-north =    99   99
+  
+ wrf domain corners
+ --- ------ -------
+ sw corner @ (  0.0000000    ,  0.0000000    )
+ se corner @ (  0.0000000    ,  0.0000000    )
+ ne corner @ (  0.0000000    ,  0.0000000    )
+ nw corner @ (  0.0000000    ,  0.0000000    )
+  
+ %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+ wrf_file: time = 2022-01-01_00:00:00
+ wrf_file: grid dimensions
+ wrf_file: ids,ide,jds,jde
+     1    99     1    99
+ %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+ will use sub cats:  T
+  
+ data_file_init: Initializing type for src emission file EDGAR_HTAP_emi_SO2_2010.0.1x0.1.nc
+ data_file_init:  nlon_src, nlat_src =         3600        1800
+ data_file_init: data_dx,dx,has_area_map =    11117.5771       0.00000000     F
+ data_file_init: file EDGAR_HTAP_emi_SO2_2010.0.1x0.1.nc is a new grid
+ data_file_init: count of points <,> data min,max lat =            0
+ xndx_src =         1800        1801
+ data_file_init: count of points < data min lat =            0
+ data_file_init: count of points > data max lat =            0
+ yndx_src =          900         901
+ ====================================================
+ get_units: con_fac(1,2) =    3.59999996E+12   1.00000000E+09
+ ====================================================
+  
+ will use source file for SO2
+  
+ get_src_time_ndx; src_dir,src_fn = /data/keeling/a/sf20/b/WRF4_4/WRF/test/em_les/EDGAR-HTAP/MOZART_MOSAIC/EDGAR_HTAP_emi_SO2_2010.0.1x0.1.nc
+ get_src_time_ndx; interp_date,datesec,ntimes =     20220101           0          12
+ get_src_time_ndx; tndx =            1
+ map_src_emissions: count of points <,> data min,max lat =            0
+ xndx_src =         1800        1801
+ map_src_emissions: count of points < data min lat =            0
+ map_src_emissions: count of points > data max lat =            0
+ yndx_src =          900         901
+  
+ ----------------------------------
+ anthro_emis completed successfully
+ ----------------------------------
