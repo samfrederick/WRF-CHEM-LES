@@ -8,8 +8,13 @@ from netCDF4 import Dataset
 try:
     profile_type = sys.argv[1]
 except IndexError:
-    "Emission profile function not specified!"
-    exit()
+    print ("Tracer profile function not specified!")
+    sys.exit()
+try:
+    species = sys.argv[2]
+except IndexError:
+    print ("Tracer species not specified!")
+    sys.exit()
 
 # MESH VARIABLES
 xgrid = 100
@@ -24,7 +29,7 @@ def create_mesh_grid():
 
     return x, y, z
 
-def gauss3d_o3_profile():
+def gauss3d_profile():
     x, y, z = create_mesh_grid()
     # Need an (N, 2) array of (x, y) pairs.
     xyz = np.column_stack([x.flat, y.flat, z.flat])
@@ -56,7 +61,8 @@ def checkerboard_profile():
     xrange, yrange = xgrid-1, ygrid-1
     epsilon = 0.001
     Ax, Ay = 1, 1
-    fx, fy = 1, 1
+    fx, fy = 2, 2
+    print(f'\nUsing fx={fx} and fy={fy}\n')
     k = fx*2*np.pi/xrange #wavenumber 2pi / L
     m = fy*2*np.pi/yrange
     x=np.arange(xrange)
@@ -66,8 +72,11 @@ def checkerboard_profile():
 
     phi_star = phi.copy()
 
-    phi_star[phi_star > 0] = 1
-    phi_star[phi_star <= 0] = 0
+    max_conc = 100 # ppmv 
+    min_conc = 0.03 #ppmv 
+
+    phi_star[phi_star > 0] = max_conc
+    phi_star[phi_star <= 0] = min_conc
 
     mesh = np.zeros((xgrid-1, ygrid-1, zgrid-1))
     mesh[:, :, 0] = phi_star
@@ -83,10 +92,12 @@ def create_modified_netcdf():
     # Code via 
     # https://stackoverflow.com/questions/15141563/python-netcdf-making-a-copy-of-all-variables-and-attributes-but-one
     # User Rich Signell
-    
-    new_o3_vals = profile_func()
 
-    toexclude = ['o3']
+    # Modified by Sam Frederick, October 2022
+    
+    tracer_profile = profile_func()
+
+    toexclude = [species]
 
     src = Dataset("wrfinput_d01")
     dst = Dataset("wrfinput_d01_new", "w")
@@ -106,7 +117,7 @@ def create_modified_netcdf():
             dst[name].setncatts(src[name].__dict__)
         else:
             x = dst.createVariable(name, variable.datatype, variable.dimensions)
-            dst[name][:] = new_o3_vals
+            dst[name][:] = tracer_profile
             # copy variable attributes all at once via dictionary
             dst[name].setncatts(src[name].__dict__)
             
@@ -121,7 +132,7 @@ def update_netcdf_names():
 
 if __name__ == '__main__':
     profile_func = globals()[profile_type]
-    print('\nModifing emissions input data\n')
+    print(f'\nModifing initial condition {species} tracer gas data\n')
     print(f'Using {profile_type}() method\n')
     create_modified_netcdf()
     update_netcdf_names()
