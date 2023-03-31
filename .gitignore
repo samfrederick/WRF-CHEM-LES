@@ -409,3 +409,17 @@ FodyWeavers.xsd
 rsl.error.*
 rsl.out.*
 slurm-*.out
+
+# Added by SF 1/23/23
+*wrfrst*
+*wrfout*
+*wrfinput*
+*wrfchemi*
+*.tar
+*.exe
+*.mod
+EDGAR_HTAP*
+
+*.npy
+*.csv
+*.png
