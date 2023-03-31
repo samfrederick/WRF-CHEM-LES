@@ -1,7 +1,7 @@
  &time_control
  run_days                            = 0,
- run_hours                           = 00,
- run_minutes                         = 10,
+ run_hours                           = 06,
+ run_minutes                         = 00,
  run_seconds                         = 00,
  start_year                          = 2022, 0001, 0001,
  start_month                         = 01,   01,   01,
@@ -15,7 +15,7 @@
  end_hour                            = 01,   01,   00,
  end_minute                          = 00,   01,   00,
  end_second                          = 00,   00,   00,
- history_interval_m                  = 01,   10,   1,
+ history_interval_m                  = 05,   10,   1,
  history_interval_s                  = 00,   00,   1,
  frames_per_outfile                  = 1000, 1000, 1000,
  restart                             = .false.,
@@ -115,7 +115,7 @@
  emiss_inpt_opt                      = 1,       
  chem_in_opt                         = 0,
  chemdt                              = 0, ! set to 0 to call chemistry module at each timestep
- gaschem_onoff                       = 1,
+ gaschem_onoff                       = 0,
 
  /
 
