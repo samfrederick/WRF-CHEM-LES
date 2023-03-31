@@ -1,0 +1,17 @@
+
+     This directory contains EDGAR-HTAP anthropogenic emission files for the
+     year 2010.  The files are in the MOZCART and MOZART-MOSAIC sub-directories.
+     The MOZCART files are intended to be used for the WRF MOZCART_KPP chemical
+     option.  The MOZART-MOSAIC files are intended to be used with the following
+     WRF chemical options:
+
+     (1) MOZART_MOSAIC_4BIN_KPP
+
+     (2) MOZART_MOSAIC_4BIN_AQ_KPP
+
+     Two example input files, one for MOZCART the other for MOZART-MOSAIC,
+     are in the INP-Examples sub-directory.  The two example input files detail
+     the mapping between WRF species and the respective emissions in the files
+     in the MOZCART and MOZART-MOSAIC sub-directories.  However, the example
+     input files do not include the user specific setting for the anthro_dir,
+     wrf_dir, or domains variables.  These variables must be set by user.
