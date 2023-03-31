@@ -3,7 +3,7 @@
 #SBATCH --nodes=2-2
 #SBATCH -n 64
 #SBATCH --partition=sesempi
-#SBATCH --time=6:00:00
+#SBATCH --time=9:00:00
 #SBATCH --mem-per-cpu=2000
 #SBATCH --mail-type=BEGIN
 #SBATCH --mail-type=FAIL
@@ -33,7 +33,11 @@ export MKL_CBWR=COMPATIBLE
 
 time mpirun -np 16 ./ideal.exe 
 # modifying emissions data in wrfinput_d01 
-python edit_wrfinput_chem_profile.py checkerboard_profile
+python edit_wrfinput_chem_profile.py checkerboard_profile so2
+python edit_wrfchemi.py
 time mpirun -np 64 ./wrf.exe
-python create_move_output_files.py
+python reduce_wrfout_size.py
+data_path=$(python create_move_output_files.py)
+echo "Data files are located at: $data_path"
+
 now=$(date +"%T") echo "End time : $now"
