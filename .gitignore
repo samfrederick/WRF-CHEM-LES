@@ -414,7 +414,7 @@ slurm-*.out
 *wrfrst*
 *wrfout*
 *wrfinput*
-*wrfchemi*
+*wrfchemi_*
 *.tar
 *.exe
 *.mod
