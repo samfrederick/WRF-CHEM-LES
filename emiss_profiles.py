@@ -37,9 +37,14 @@ def gauss3d_profile(xgrid=100, ygrid=100, zgrid=200):
 
     return profile_vals
 
-def checkerboard_profile(fx, fy, xgrid, ygrid, zgrid, max_val, min_val):
+def checkerboard_profile(fx, fy, xgrid, ygrid, zgrid, max_val, min_val, phase_shift=False):
     xrange, yrange = xgrid, ygrid
-    epsilon = 0.001
+
+    if (fx == fy) and (fx == 0):
+        epsilon = 0.0
+    else:
+        epsilon = 0.001
+        
     Ax, Ay = 1, 1
     
     #print(f'\nUsing fx={fx} and fy={fy}\n')
@@ -55,8 +60,15 @@ def checkerboard_profile(fx, fy, xgrid, ygrid, zgrid, max_val, min_val):
     phi_star[phi_star > 0] = max_val
     phi_star[phi_star <= 0] = min_val
 
+    if phase_shift:
+        if (fx == fy) or (fx<fy):
+            axis= 0
+        else:
+            axis = 1
+        phi_star = np.flip(phi_star, axis=axis)
+
     mesh = np.zeros((xgrid, ygrid, zgrid))
-    mesh[:, :, 0] = phi_star
+    mesh[:, :, 0] = phi_star # only set checkerboard values for the ground level
 
     # transpose so z, y, x
     mesh = mesh.T
