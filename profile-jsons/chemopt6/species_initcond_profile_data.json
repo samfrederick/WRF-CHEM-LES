@@ -1,0 +1,114 @@
+{
+    "o3": {
+        "profile_type": "checkerboard_profile",
+        "profile_fx": 0,
+        "profile_fy": 0,
+        "profile_min_val": 0.0,
+        "profile_max_val": 100,
+        "profile_phase_shift": false
+    },
+    "so2": {
+        "profile_type": "checkerboard_profile",
+        "profile_fx": 0,
+        "profile_fy": 0,
+        "profile_min_val": 0.0,
+        "profile_max_val": 100,
+        "profile_phase_shift": false
+    },
+    "no2": {
+        "profile_type": "checkerboard_profile",
+        "profile_fx": 0,
+        "profile_fy": 0,
+        "profile_min_val": 0.0,
+        "profile_max_val": 100,
+        "profile_phase_shift": false
+    },
+    "no": {
+        "profile_type": "checkerboard_profile",
+        "profile_fx": 0,
+        "profile_fy": 0,
+        "profile_min_val": 0.0,
+        "profile_max_val": 100,
+        "profile_phase_shift": false
+    },
+    "nh3": {
+        "profile_type": "checkerboard_profile",
+        "profile_fx": 0,
+        "profile_fy": 0,
+        "profile_min_val": 0.0,
+        "profile_max_val": 100,
+        "profile_phase_shift": false
+    },
+    "co": {
+        "profile_type": "checkerboard_profile",
+        "profile_fx": 0,
+        "profile_fy": 0,
+        "profile_min_val": 0.0,
+        "profile_max_val": 100,
+        "profile_phase_shift": false
+    },
+    "ald2": {
+        "profile_type": "checkerboard_profile",
+        "profile_fx": 0,
+        "profile_fy": 0,
+        "profile_min_val": 0.0,
+        "profile_max_val": 100,
+        "profile_phase_shift": false
+    },
+    "hcho": {
+        "profile_type": "checkerboard_profile",
+        "profile_fx": 0,
+        "profile_fy": 0,
+        "profile_min_val": 0.0,
+        "profile_max_val": 100,
+        "profile_phase_shift": false
+    },
+    "eth": {
+        "profile_type": "checkerboard_profile",
+        "profile_fx": 0,
+        "profile_fy": 0,
+        "profile_min_val": 0.0,
+        "profile_max_val": 100,
+        "profile_phase_shift": false
+    },
+    "tol": {
+        "profile_type": "checkerboard_profile",
+        "profile_fx": 0,
+        "profile_fy": 0,
+        "profile_min_val": 0.0,
+        "profile_max_val": 100,
+        "profile_phase_shift": false
+    },
+    "xyl": {
+        "profile_type": "checkerboard_profile",
+        "profile_fx": 0,
+        "profile_fy": 0,
+        "profile_min_val": 0.0,
+        "profile_max_val": 100,
+        "profile_phase_shift": false
+    },
+    "par": {
+        "profile_type": "checkerboard_profile",
+        "profile_fx": 0,
+        "profile_fy": 0,
+        "profile_min_val": 0.0,
+        "profile_max_val": 100,
+        "profile_phase_shift": false
+    },
+    "isop": {
+        "profile_type": "checkerboard_profile",
+        "profile_fx": 0,
+        "profile_fy": 0,
+        "profile_min_val": 0.0,
+        "profile_max_val": 100,
+        "profile_phase_shift": false
+    },
+    "ch3oh": {
+        "profile_type": "checkerboard_profile",
+        "profile_fx": 0,
+        "profile_fy": 0,
+        "profile_min_val": 0.0,
+        "profile_max_val": 100,
+        "profile_phase_shift": false
+    }
+}

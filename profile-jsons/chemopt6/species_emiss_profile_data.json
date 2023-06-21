@@ -1,0 +1,106 @@
+{
+    "E_SO2": {
+        "profile_type": "checkerboard_profile",
+        "profile_fx": 0.5,
+        "profile_fy": 0.5,
+        "profile_min_val": 0.0,
+        "profile_max_val": 15.228,
+        "profile_phase_shift": false
+    },
+    "E_NO2": {
+        "profile_type": "checkerboard_profile",
+        "profile_fx": 0.5,
+        "profile_fy": 0.5,
+        "profile_min_val": 0.0,
+        "profile_max_val": 10.872,
+        "profile_phase_shift": false
+    },
+    "E_NO": {
+        "profile_type": "checkerboard_profile",
+        "profile_fx": 0.5,
+        "profile_fy": 0.5,
+        "profile_min_val": 0.0,
+        "profile_max_val": 207.0,
+        "profile_phase_shift": false
+    },
+    "E_NH3": {
+        "profile_type": "checkerboard_profile",
+        "profile_fx": 0.5,
+        "profile_fy": 0.5,
+        "profile_min_val": 0.0,
+        "profile_max_val": 32.148,
+        "profile_phase_shift": false
+    },
+    "E_CO": {
+        "profile_type": "checkerboard_profile",
+        "profile_fx": 0.5,
+        "profile_fy": 0.5,
+        "profile_min_val": 0.0,
+        "profile_max_val": 2822.4,
+        "profile_phase_shift": false
+    },
+    "E_ALD2": {
+        "profile_type": "checkerboard_profile",
+        "profile_fx": 0.5,
+        "profile_fy": 0.5,
+        "profile_min_val": 0.0,
+        "profile_max_val": 6.12,
+        "profile_phase_shift": false
+    },
+    "E_HCHO": {
+        "profile_type": "checkerboard_profile",
+        "profile_fx": 0.5,
+        "profile_fy": 0.5,
+        "profile_min_val": 0.0,
+        "profile_max_val": 14.616,
+        "profile_phase_shift": false
+    },
+    "E_ETH": {
+        "profile_type": "checkerboard_profile",
+        "profile_fx": 0.5,
+        "profile_fy": 0.5,
+        "profile_min_val": 0.0,
+        "profile_max_val": 66.6,
+        "profile_phase_shift": false
+    },
+    "E_TOL": {
+        "profile_type": "checkerboard_profile",
+        "profile_fx": 0.5,
+        "profile_fy": 0.5,
+        "profile_min_val": 0.0,
+        "profile_max_val": 21.96,
+        "profile_phase_shift": false
+    },
+    "E_XYL": {
+        "profile_type": "checkerboard_profile",
+        "profile_fx": 0.5,
+        "profile_fy": 0.5,
+        "profile_min_val": 0.0,
+        "profile_max_val": 20.16,
+        "profile_phase_shift": false
+    },
+    "E_PAR": {
+        "profile_type": "checkerboard_profile",
+        "profile_fx": 0.5,
+        "profile_fy": 0.5,
+        "profile_min_val": 0.0,
+        "profile_max_val": 615.6,
+        "profile_phase_shift": false
+    },
+    "E_ISOP": {
+        "profile_type": "checkerboard_profile",
+        "profile_fx": 0.5,
+        "profile_fy": 0.5,
+        "profile_min_val": 0.0,
+        "profile_max_val": 0.8676,
+        "profile_phase_shift": false
+    },
+    "E_CH3OH": {
+        "profile_type": "checkerboard_profile",
+        "profile_fx": 0.5,
+        "profile_fy": 0.5,
+        "profile_min_val": 0.0,
+        "profile_max_val": 0.8532,
+        "profile_phase_shift": false
+    }
+}

@@ -1,0 +1,442 @@
+{
+    "co": {
+        "profile_type": "checkerboard_profile",
+        "profile_fx": 1,
+        "profile_fy": 1,
+        "profile_min_val": 0.0,
+        "profile_max_val": 100.0,
+        "profile_phase_shift": false
+    },
+    "no": {
+        "profile_type": "checkerboard_profile",
+        "profile_fx": 1,
+        "profile_fy": 1,
+        "profile_min_val": 0.0,
+        "profile_max_val": 100.0,
+        "profile_phase_shift": false
+    },
+    "so2": {
+        "profile_type": "checkerboard_profile",
+        "profile_fx": 1,
+        "profile_fy": 1,
+        "profile_min_val": 0.0,
+        "profile_max_val": 100.0,
+        "profile_phase_shift": false
+    },
+    "nh3": {
+        "profile_type": "checkerboard_profile",
+        "profile_fx": 1,
+        "profile_fy": 1,
+        "profile_min_val": 0.0,
+        "profile_max_val": 100.0,
+        "profile_phase_shift": false
+    },
+    "bigalk": {
+        "profile_type": "checkerboard_profile",
+        "profile_fx": 1,
+        "profile_fy": 1,
+        "profile_min_val": 0.0,
+        "profile_max_val": 100.0,
+        "profile_phase_shift": false
+    },
+    "bigene": {
+        "profile_type": "checkerboard_profile",
+        "profile_fx": 1,
+        "profile_fy": 1,
+        "profile_min_val": 0.0,
+        "profile_max_val": 100.0,
+        "profile_phase_shift": false
+    },
+    "c2h4": {
+        "profile_type": "checkerboard_profile",
+        "profile_fx": 1,
+        "profile_fy": 1,
+        "profile_min_val": 0.0,
+        "profile_max_val": 100.0,
+        "profile_phase_shift": false
+    },
+    "c2h5oh": {
+        "profile_type": "checkerboard_profile",
+        "profile_fx": 1,
+        "profile_fy": 1,
+        "profile_min_val": 0.0,
+        "profile_max_val": 100.0,
+        "profile_phase_shift": false
+    },
+    "c2h6": {
+        "profile_type": "checkerboard_profile",
+        "profile_fx": 1,
+        "profile_fy": 1,
+        "profile_min_val": 0.0,
+        "profile_max_val": 100.0,
+        "profile_phase_shift": false
+    },
+    "ch2o": {
+        "profile_type": "checkerboard_profile",
+        "profile_fx": 1,
+        "profile_fy": 1,
+        "profile_min_val": 0.0,
+        "profile_max_val": 100.0,
+        "profile_phase_shift": false
+    },
+    "ch3cho": {
+        "profile_type": "checkerboard_profile",
+        "profile_fx": 1,
+        "profile_fy": 1,
+        "profile_min_val": 0.0,
+        "profile_max_val": 100.0,
+        "profile_phase_shift": false
+    },
+    "ch3coch3": {
+        "profile_type": "checkerboard_profile",
+        "profile_fx": 1,
+        "profile_fy": 1,
+        "profile_min_val": 0.0,
+        "profile_max_val": 100.0,
+        "profile_phase_shift": false
+    },
+    "ch3oh": {
+        "profile_type": "checkerboard_profile",
+        "profile_fx": 1,
+        "profile_fy": 1,
+        "profile_min_val": 0.0,
+        "profile_max_val": 100.0,
+        "profile_phase_shift": false
+    },
+    "mek": {
+        "profile_type": "checkerboard_profile",
+        "profile_fx": 1,
+        "profile_fy": 1,
+        "profile_min_val": 0.0,
+        "profile_max_val": 100.0,
+        "profile_phase_shift": false
+    },
+    "toluene": {
+        "profile_type": "checkerboard_profile",
+        "profile_fx": 1,
+        "profile_fy": 1,
+        "profile_min_val": 0.0,
+        "profile_max_val": 100.0,
+        "profile_phase_shift": false
+    },
+    "c3h6": {
+        "profile_type": "checkerboard_profile",
+        "profile_fx": 1,
+        "profile_fy": 1,
+        "profile_min_val": 0.0,
+        "profile_max_val": 100.0,
+        "profile_phase_shift": false
+    },
+    "c3h8": {
+        "profile_type": "checkerboard_profile",
+        "profile_fx": 1,
+        "profile_fy": 1,
+        "profile_min_val": 0.0,
+        "profile_max_val": 100.0,
+        "profile_phase_shift": false
+    },
+    "no2": {
+        "profile_type": "checkerboard_profile",
+        "profile_fx": 1,
+        "profile_fy": 1,
+        "profile_min_val": 0.0,
+        "profile_max_val": 100.0,
+        "profile_phase_shift": false
+    },
+    "isop": {
+        "profile_type": "checkerboard_profile",
+        "profile_fx": 1,
+        "profile_fy": 1,
+        "profile_min_val": 0.0,
+        "profile_max_val": 100.0,
+        "profile_phase_shift": false
+    },
+    "c10h16": {
+        "profile_type": "checkerboard_profile",
+        "profile_fx": 1,
+        "profile_fy": 1,
+        "profile_min_val": 0.0,
+        "profile_max_val": 100.0,
+        "profile_phase_shift": false
+    },
+    "sulf": {
+        "profile_type": "checkerboard_profile",
+        "profile_fx": 1,
+        "profile_fy": 1,
+        "profile_min_val": 0.0,
+        "profile_max_val": 100.0,
+        "profile_phase_shift": false
+    },
+    "c2h2": {
+        "profile_type": "checkerboard_profile",
+        "profile_fx": 1,
+        "profile_fy": 1,
+        "profile_min_val": 0.0,
+        "profile_max_val": 100.0,
+        "profile_phase_shift": false
+    },
+    "benzene": {
+        "profile_type": "checkerboard_profile",
+        "profile_fx": 1,
+        "profile_fy": 1,
+        "profile_min_val": 0.0,
+        "profile_max_val": 100.0,
+        "profile_phase_shift": false
+    },
+    "xylene": {
+        "profile_type": "checkerboard_profile",
+        "profile_fx": 1,
+        "profile_fy": 1,
+        "profile_min_val": 0.0,
+        "profile_max_val": 100.0,
+        "profile_phase_shift": false
+    },
+    "gly": {
+        "profile_type": "checkerboard_profile",
+        "profile_fx": 1,
+        "profile_fy": 1,
+        "profile_min_val": 0.0,
+        "profile_max_val": 100.0,
+        "profile_phase_shift": false
+    },
+    "macr": {
+        "profile_type": "checkerboard_profile",
+        "profile_fx": 1,
+        "profile_fy": 1,
+        "profile_min_val": 0.0,
+        "profile_max_val": 100.0,
+        "profile_phase_shift": false
+    },
+    "mgly": {
+        "profile_type": "checkerboard_profile",
+        "profile_fx": 1,
+        "profile_fy": 1,
+        "profile_min_val": 0.0,
+        "profile_max_val": 100.0,
+        "profile_phase_shift": false
+    },
+    "mvk": {
+        "profile_type": "checkerboard_profile",
+        "profile_fx": 1,
+        "profile_fy": 1,
+        "profile_min_val": 0.0,
+        "profile_max_val": 100.0,
+        "profile_phase_shift": false
+    },
+    "hcooh": {
+        "profile_type": "checkerboard_profile",
+        "profile_fx": 1,
+        "profile_fy": 1,
+        "profile_min_val": 0.0,
+        "profile_max_val": 100.0,
+        "profile_phase_shift": false
+    },
+    "hono": {
+        "profile_type": "checkerboard_profile",
+        "profile_fx": 1,
+        "profile_fy": 1,
+        "profile_min_val": 0.0,
+        "profile_max_val": 100.0,
+        "profile_phase_shift": false
+    },
+    "eci": {
+        "profile_type": "checkerboard_profile",
+        "profile_fx": 1,
+        "profile_fy": 1,
+        "profile_min_val": 0.0,
+        "profile_max_val": 100.0,
+        "profile_phase_shift": false
+    },
+    "ecj": {
+        "profile_type": "checkerboard_profile",
+        "profile_fx": 1,
+        "profile_fy": 1,
+        "profile_min_val": 0.0,
+        "profile_max_val": 100.0,
+        "profile_phase_shift": false
+    },
+    "orgi": {
+        "profile_type": "checkerboard_profile",
+        "profile_fx": 1,
+        "profile_fy": 1,
+        "profile_min_val": 0.0,
+        "profile_max_val": 100.0,
+        "profile_phase_shift": false
+    },
+    "orgj": {
+        "profile_type": "checkerboard_profile",
+        "profile_fx": 1,
+        "profile_fy": 1,
+        "profile_min_val": 0.0,
+        "profile_max_val": 100.0,
+        "profile_phase_shift": false
+    },
+    "pm25i": {
+        "profile_type": "checkerboard_profile",
+        "profile_fx": 1,
+        "profile_fy": 1,
+        "profile_min_val": 0.0,
+        "profile_max_val": 100.0,
+        "profile_phase_shift": false
+    },
+    "pm25j": {
+        "profile_type": "checkerboard_profile",
+        "profile_fx": 1,
+        "profile_fy": 1,
+        "profile_min_val": 0.0,
+        "profile_max_val": 100.0,
+        "profile_phase_shift": false
+    },
+    "pm_10": {
+        "profile_type": "checkerboard_profile",
+        "profile_fx": 1,
+        "profile_fy": 1,
+        "profile_min_val": 0.0,
+        "profile_max_val": 100.0,
+        "profile_phase_shift": false
+    },
+    "so4i": {
+        "profile_type": "checkerboard_profile",
+        "profile_fx": 1,
+        "profile_fy": 1,
+        "profile_min_val": 0.0,
+        "profile_max_val": 100.0,
+        "profile_phase_shift": false
+    },
+    "so4j": {
+        "profile_type": "checkerboard_profile",
+        "profile_fx": 1,
+        "profile_fy": 1,
+        "profile_min_val": 0.0,
+        "profile_max_val": 100.0,
+        "profile_phase_shift": false
+    },
+    "no3i": {
+        "profile_type": "checkerboard_profile",
+        "profile_fx": 1,
+        "profile_fy": 1,
+        "profile_min_val": 0.0,
+        "profile_max_val": 100.0,
+        "profile_phase_shift": false
+    },
+    "no3j": {
+        "profile_type": "checkerboard_profile",
+        "profile_fx": 1,
+        "profile_fy": 1,
+        "profile_min_val": 0.0,
+        "profile_max_val": 100.0,
+        "profile_phase_shift": false
+    },
+    "nh4i": {
+        "profile_type": "checkerboard_profile",
+        "profile_fx": 1,
+        "profile_fy": 1,
+        "profile_min_val": 0.0,
+        "profile_max_val": 100.0,
+        "profile_phase_shift": false
+    },
+    "nh4j": {
+        "profile_type": "checkerboard_profile",
+        "profile_fx": 1,
+        "profile_fy": 1,
+        "profile_min_val": 0.0,
+        "profile_max_val": 100.0,
+        "profile_phase_shift": false
+    },
+    "nai": {
+        "profile_type": "checkerboard_profile",
+        "profile_fx": 1,
+        "profile_fy": 1,
+        "profile_min_val": 0.0,
+        "profile_max_val": 100.0,
+        "profile_phase_shift": false
+    },
+    "naj": {
+        "profile_type": "checkerboard_profile",
+        "profile_fx": 1,
+        "profile_fy": 1,
+        "profile_min_val": 0.0,
+        "profile_max_val": 100.0,
+        "profile_phase_shift": false
+    },
+    "cli": {
+        "profile_type": "checkerboard_profile",
+        "profile_fx": 1,
+        "profile_fy": 1,
+        "profile_min_val": 0.0,
+        "profile_max_val": 100.0,
+        "profile_phase_shift": false
+    },
+    "clj": {
+        "profile_type": "checkerboard_profile",
+        "profile_fx": 1,
+        "profile_fy": 1,
+        "profile_min_val": 0.0,
+        "profile_max_val": 100.0,
+        "profile_phase_shift": false
+    },
+    "co_a": {
+        "profile_type": "checkerboard_profile",
+        "profile_fx": 1,
+        "profile_fy": 1,
+        "profile_min_val": 0.0,
+        "profile_max_val": 100.0,
+        "profile_phase_shift": false
+    },
+    "co_bb": {
+        "profile_type": "checkerboard_profile",
+        "profile_fx": 1,
+        "profile_fy": 1,
+        "profile_min_val": 0.0,
+        "profile_max_val": 100.0,
+        "profile_phase_shift": false
+    },
+    "orgi_a": {
+        "profile_type": "checkerboard_profile",
+        "profile_fx": 1,
+        "profile_fy": 1,
+        "profile_min_val": 0.0,
+        "profile_max_val": 100.0,
+        "profile_phase_shift": false
+    },
+    "orgi_bb": {
+        "profile_type": "checkerboard_profile",
+        "profile_fx": 1,
+        "profile_fy": 1,
+        "profile_min_val": 0.0,
+        "profile_max_val": 100.0,
+        "profile_phase_shift": false
+    },
+    "orgj_a": {
+        "profile_type": "checkerboard_profile",
+        "profile_fx": 1,
+        "profile_fy": 1,
+        "profile_min_val": 0.0,
+        "profile_max_val": 100.0,
+        "profile_phase_shift": false
+    },
+    "orgj_bb": {
+        "profile_type": "checkerboard_profile",
+        "profile_fx": 1,
+        "profile_fy": 1,
+        "profile_min_val": 0.0,
+        "profile_max_val": 100.0,
+        "profile_phase_shift": false
+    },
+    "voca": {
+        "profile_type": "checkerboard_profile",
+        "profile_fx": 1,
+        "profile_fy": 1,
+        "profile_min_val": 0.0,
+        "profile_max_val": 100.0,
+        "profile_phase_shift": false
+    },
+    "vocbb": {
+        "profile_type": "checkerboard_profile",
+        "profile_fx": 1,
+        "profile_fy": 1,
+        "profile_min_val": 0.0,
+        "profile_max_val": 100.0,
+        "profile_phase_shift": false
+    }
+}
