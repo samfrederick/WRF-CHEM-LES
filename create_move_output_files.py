@@ -1,4 +1,4 @@
-import os
+import os, sys
 from datetime import datetime
 import shutil
 import fnmatch
@@ -19,8 +19,19 @@ slurm_files = fnmatch.filter(os.listdir('.'), "slurm-*.out*")
 wrfinput_files = fnmatch.filter(os.listdir('.'), "wrfinput_*")
 wrfoutput_files = fnmatch.filter(os.listdir('.'), "wrfout_*")
 wrfrst_files = fnmatch.filter(os.listdir('.'), "wrfrst_*")
+namelist_output = fnmatch.filter(os.listdir('.'), "namelist.output")
+species_config_files = fnmatch.filter(os.listdir('.'), "species_*data.json")
 
-move_files = error_files + out_files + slurm_files + wrfinput_files + wrfoutput_files + wrfrst_files
+move_files = (error_files + out_files + slurm_files + wrfinput_files 
+              + wrfoutput_files + wrfrst_files + namelist_output 
+              + species_config_files)
 
+if len(move_files) == 0:
+    print('No files to move, exiting')
+    sys.exit()
+
+print('Moving simulation files')
 for file in move_files:
     shutil.move(f"{wrk_dir}/{file}", f"{output_path}/{file}")
+
+# TODO: could also move wrfchemi files
